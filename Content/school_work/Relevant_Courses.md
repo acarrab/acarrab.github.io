@@ -34,7 +34,7 @@ These are classes I have taken out of interest/thought would help me with my aca
 - Algorithms and Data Structures
   - Still in top 5 favorite classes
 - Organic Chemistry
-  - Fun class with some fun abstract concepts that taught me how to deal better with abstract, yet feature-described objects and try to predict their interactions.
+  - Fun class with some fun abstract concepts that taught me how to deal better with abstract, feature-described, objects and try to predict their interactions.
 
 ### Spring 2015
 
