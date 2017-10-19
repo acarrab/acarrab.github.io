@@ -6,7 +6,7 @@ import WebView from "./WebView.Component";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavigationBar from './Navigation';
 
-var baseUrl = "/~acarrab/"; // my base url for school web page
+var baseUrl = "/"; // my base url for school web page
 
 if (process.env.NODE_ENV === 'development') {
     baseUrl = "/";
