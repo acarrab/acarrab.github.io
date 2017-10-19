@@ -2,35 +2,41 @@
 
 Hai people, this page is coming to you live from a server somewhere on the interweb!
 
-Anyways, the name is Angelo and I am a Senior Computer Science Student at Clemson.
-I do things occasionally, but really just like messing around with random things for fun.
+Anyways, the name is Angelo and I am a Senior Computer Science Student at
+Clemson. I do things, and some of those things are, well, on this website.
 
-I like long walks in the park and most music.
+I like long walks in the park and most music. I also liked the work I have done in the past, which is below.
+
+## Honors Thesis Work
+
+*2017-2018 (present)* [more info](#/projects/topic_modeling_and_hypothesis_generation)
 
 
-## More info
+Year long project with goal of improving existing techniques for hypothesis generation by extracting relevant information from research papers. 
 
+I am working with big data (1.5 million Medical Research Articles from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/))
 
-
-
-### Software engineering intern at [Blackbaud](https://www.blackbaud.com/)
-![](../Resources/blackbaud.jpg)
+## Software engineering intern at [Blackbaud](https://www.blackbaud.com/)
 
 *Summer 2017*
 
+![](../Resources/blackbaud.jpg)
+
+<center><em>That is me kneeling at the bottom right</em></center>
+
 Worked as a full-stack software engineering intern and developed things with JavaScript, Angular, JQuery, C#, and SQL.
 
-### Research with Human-Centered Cloud Robotics @ Clemson University
+## Research with Human-Centered Cloud Robotics @ Clemson University
 
-*Aug. 2016 - Jan. 2017*
+*Aug. 2016 - Jan. 2017* [more info](#/projects/pubsub_architecture_analysis)
 
-- Analyzed pubsub architectures performance in realtime environments, or well realtime simulations.
+- Analyzed pubsub architectures performance in real-time environments, or simulations of real-time environments with no prediction.
 - Simulations done in Mininet with python scripts for generating the network topology.
 - Looked specifically at MQTT and Kafka
 
-### Research at Rutgers University with [DIMACS](http://dimacs.rutgers.edu/)
+## Research at Rutgers University with [DIMACS](http://dimacs.rutgers.edu/)
 
-*Summer 2016*
+*Summer 2016* [more info](#/projects/multi-robot_environment)
 
 Joined research experience for Undergrads program at Rutgers University.
 
@@ -43,14 +49,14 @@ Joined research experience for Undergrads program at Rutgers University.
 
 Determined through self-created simulations that there were no sharp transition in traffic, based on changes in robot size and start-end locality.
 
-### Applied Algorithms Lab @ Clemson University 
+## Applied Algorithms Lab @ Clemson University 
 
 *Jan 2016 - June 2016*
 
 Implemented DTW Search with modifications to improve result quality with noisy signal.
 For EEG database to add search functionality for Neurologists at MUSC research hospital.
 
-### Virtual Environment Group @ Clemson University 
+## Virtual Environment Group @ Clemson University
 
 *Sep. 2014 - Aug. 2015*
 

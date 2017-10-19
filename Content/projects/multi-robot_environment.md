@@ -1,6 +1,29 @@
-## Research Science Internship @ DIMACS REU at Rutgers University
+# Research Science Internship @ DIMACS REU at Rutgers University
 
 Feel free to download and look at my [research paper](../Resources/finalResearchPaper.pdf).
+
+
+## Discrete Representation of multi-agent environment
+
+![](../Resources/DiscreteSmaller.gif)
+<center><em>Discrete Multi-Robot Environment Simulation</em></center>
+
+### Diagram explanation
+
+This is a simulation of a multi-robot environment in which basic path
+planning is implemented. It is done in a discrete case to allow for easier
+path planning. The grid size and hexagonal shape is chosen so that a disc
+with radius **r** will not collide with another disc of radius **r**.
+
+Pseudo code
+
+1. A Starting and Ending point on the graph are randomly chosen for each disc.
+1. A breadth first search is done from each discs goal node, that is saved on the node data structure
+1. On each discrete transition, every node tries to move closer to its goal node, while trying not to run into another disc, using info on the nodes
+1. Random priorities are decided among the discs and the next step is computed.
+1. Repeat step 4 until all nodes are at their respective goal states.
+
+## Work Summary And Blog
 
 For this project, I was responsible for generating simulations for
 multi-robot environments. These simulations would be used in order to
@@ -23,11 +46,7 @@ algorithm do not create sharp transitions.
 
 ![](../Resources/ContinuousSmaller.gif)
 
-*Continuous Case*
-
-![](resources/DiscreteSmaller.gif)
-
-*Discrete Case*
+<center><em>Continuous Case</em></center>
 
 ## Final week and a Research Paper
 
@@ -84,7 +103,7 @@ This week, I generated graphs based on how the locality of travel and
 density of the discs area in a unit square affect the number of
 collisions. Using plot.ly along with python, I was able to run
 simulations on the number of pairwise collisions. In the system there
-appeared to be no sharp transitions 
+appeared to be no sharp transitions.
 
 
 ## I now have graphs
@@ -95,7 +114,7 @@ appeared to be no sharp transitions
 density of the discs area in a unit square affect the number of
 collisions. Using plot.ly along with python, I was able to run
 simulations on the number of pairwise collisions. In the system there
-apeared to be no sharp transitions. 
+appeared to be no sharp transitions.
 
 ## Onwards!
 
@@ -104,9 +123,9 @@ apeared to be no sharp transitions.
  This week, I ran simulations to determine how the properties of the
 system affected the interaction between the discs. The results of this
 step are so far inconclusive since no sharp transition was found yet. I
-set up python andpygame within visual studios and then started to work
+set up python and pygame within visual studios and then started to work
 in/learn python to create a grid for the discs to be on. This will be
-useful later for creating models with pygame. 
+useful later for creating models with pygame.
 
 
 ## Start of the Program
@@ -119,4 +138,4 @@ and maximum distance from starting point to ending point affect the
 number of pairwise collisions that occur. I layed out a plan for what I
 am going to be researching as well as getting my workspace organized and
 set up for working. I met with my mentor, Jingjin Yu, and we layed out
-moreso what I will be starting with.
+more-so what I will be starting with.

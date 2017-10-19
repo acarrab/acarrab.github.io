@@ -1,4 +1,4 @@
-## Research with Human-Centered Cloud Robotics group @ Clemson
+# Research with Human-Centered Cloud Robotics group @ Clemson
 
 ### Tools for Analysis
 
@@ -13,12 +13,12 @@ data actually takes.
 
 ![](../Resources/figure_1.png)
 
-*Distribution of Time Taken*
+<center><em>Distribution of Time Taken</em></center>
 
 ![](../Resources/figure_2.png)
 ![](../Resources/figure_3.png)
 
-*How Far from Path*
+<center><em>How Far from Path</em></center>
 
 These diagrams will generally help with basic analysis, but numerical analysis and comparisons will
 be done as well.
@@ -27,7 +27,6 @@ be done as well.
 
 *Wednesday, November 2nd, 2016*
 
-
 Over the past few weeks, I have been working on creating network topologies with Mininet[1], then
 testing the performance of MQTT QoS 2 in order to run a ball-plate simulation. A ball-plate
 simulation is one in which we literally simulate three entities: a ball being balanced on plate, an
@@ -35,12 +34,12 @@ observer (plant), and a controller. The observer desires the ball to be in a cer
 plate and also in constant motion. The controller just listens the position that the observer wants and
 tries to make it happen if it can.
 
-Now the specific network topology only constists of 3 hosts and their respective switches; the hosts are
+Now the specific network topology only consists of 3 hosts and their respective switches; the hosts are
 called Broker, Plant, and Controller. The topology is shown in the diagram below.
 
 ![](../Resources/diagram1.png)
 
-*Network Topology*
+<center><em>Network Topology</em></center>
 
 
 Although an extremely basic topology, it will be perfect for simple analysis of the effect of latency and
