@@ -52,8 +52,9 @@ img {
 #footerPadding {
     height: 4em;
 }
-.fa {
-    margin-left: 1.5em;
+.fa  {
+    margin-left: .8em;
+    margin-right: .8em;
     font-size: 1.5em !important;
     color: black;
 }
