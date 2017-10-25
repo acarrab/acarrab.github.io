@@ -12,8 +12,7 @@ In order to use for yourself, here are some things you should know
   - example: `_home.md`
 - all files and directories should be listed with spaces being replaced by `_`.
   - example: `website_construction.md`
-
-Files are currently being sorted alphabetically during auto-generation
+- File order is alphabetical, but order can be specified by adding some amount of `_` before the file names.
 
 ## Generation
 
