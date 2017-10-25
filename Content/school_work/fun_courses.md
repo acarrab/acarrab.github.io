@@ -1,6 +1,6 @@
 # Fun/Recommended Clemson Courses to take
 
-These are classes I have taken out of interest/thought would help me with my academic goals.
+These are classes I have taken out of interest or thought would help me with my academic goals.
 
 ### Fall 2017
 
@@ -13,16 +13,15 @@ These are classes I have taken out of interest/thought would help me with my aca
 
 - Design and Analysis of Algorithms 8400
   - Learned advanced runtime analysis and better application of known algorithms
-  - Probably one of my **favorite** classes that I have taken in College
 - Data Science
-  - Learned about statistical models
+  - Learned high level information about statistical models
 - Computer Graphics
-  - Geometry and Calculus put together in a lovely way
+  - Fun geometry and calculus as well as well as the need to work in highly constrained environment
 
 ### Fall 2016
 
 - Networks and Network Programming
-  - Worked on Honors Contract and worked on Honors research (With Human-Centered Cloud Robotics)
+  - Worked on Honors research (with Human-Centered Cloud Robotics) while in this class
 
 ### Spring 2016
 
@@ -34,12 +33,11 @@ These are classes I have taken out of interest/thought would help me with my aca
 - Algorithms and Data Structures
   - Still in top 5 favorite classes
 - Organic Chemistry
-  - Fun class with some fun abstract concepts that taught me how to deal better with abstract, feature-described, objects and try to predict their interactions.
+  - Fun class that teaches students to work with abstract, feature-described, objects and try to predict their interactions.
 
 ### Spring 2015
 
 - Calculus of Several Variables
-  - Favorite Calculus class
 - Comp Sci 102
   - First project heavy computer science course
   - This is where I made [the ray-tracer](#/school_work/2015_Spring_|_102_RayTracer) and code for modeling the scene

@@ -24,6 +24,9 @@ class Page:
         self.text = open(fileName, "r").read().replace("\n", "\\n").replace("\"", "\\\"")
         self.name = re.search(r"([^\/]*)\.md", fileName).group(1).replace("_", " ").title()
         self.route = fileName.replace("//", "/").replace("./Content", "").replace(".md", "") if self.name != " Home" else "/"
+        print(self.route)
+        self.route = re.sub(r"/_*", "/", self.route);
+        self.route = self.route.replace("_|_", "_");
 
 
 spaces = "    "
@@ -125,10 +128,10 @@ def lettersSanitized(s):
 
 i = 0;
 allPages = d.linearizePages();
-wln("<Route exact path='/' component={() => (<ReactMarkdown source=\"" + "".join([x for x in lettersSanitized(allPages[0].text)]) + "\" />)} />")
+wln("<Route exact path='/' component={() => (<ReactMarkdown source={\"" + "".join([x for x in lettersSanitized(allPages[0].text)]) + "\"} />)} />")
 
 for page in allPages[1:]:
-    wln("<Route path='"+page.route+"' component={() => (<ReactMarkdown source=\""+ "".join([x for x in lettersSanitized(page.text)]) + "\" />)} />")
+    wln("<Route path='"+page.route+"' component={() => (<ReactMarkdown source={\""+ "".join([x for x in lettersSanitized(page.text)]) + "\"} />)} />")
     i += 1
 
     

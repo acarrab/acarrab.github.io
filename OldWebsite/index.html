@@ -1,0 +1,58 @@
+<!doctype html>
+<html style="height:100%;">
+    <head>
+        <meta charset="utf-8">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="canvasNodes.js"></script>
+        <base target="_blank">
+    </head>
+
+    <body style="display:flex; height: 100%;">
+        <div class="mainContent" id="contentHolder">
+            <div class="TopBar" id="topBar">
+                <div class="left">
+                    <button onclick="navButtonClick()" class="openNav">
+                        <em class="material-icons" style="font-size:4em;">settings</em>
+                    </button>
+                </div>
+                <div class="middle">
+                    <div class="middleTop">
+                        <h1 class="myName" >ANGELO CARRABBA</h1>
+                    </div>
+                    <div class="middleBottom">
+                        <h2 class="subName">Computer Science and Mathematical Sciences Student</h2>
+                    </div>
+                </div>
+                <div style="width:10%;"></div>
+            </div>
+            <div id="settings" class="settingsBar">
+                <button onClick="onHomeCLick()" class="settingsButton">Home</button>
+                <button onClick="toggleSpecks()" class="settingsButton" id="specksButton">Toggle Specks Off</button>
+                <button onClick="toggleMotion()" class="settingsButton" id="motionButton">Toggle sliding</button>
+            </div>
+
+
+
+            <!-- Holds the canvas -->
+            <div id="canvasLocation"></div>
+
+            <!-- Holds the pages that slide in -->
+
+            <div class="coverInfo" style="position: relative; overflow-y: hidden; margin-top: 1em;">
+                <div class="center">
+                    <div id="webInfoLocation" class="column" style="position: relative; top: -800px;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Holds the cached pages, so that they can be quickly pulled -->
+            <div id="cachedInformation" style="display: none; height:0em !important;"></div>
+
+        </div>
+    </body>
+</html>

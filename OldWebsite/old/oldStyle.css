@@ -1,0 +1,92 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Copse';
+
+:root {
+    --default-blue: #1558d6;
+    --background: linen;
+    --inverse-color: linen;
+    --color-two: linen;
+    --scheme1: #2c323d;
+    --scheme2: #54637f;
+}
+html, body {
+    background-color: var(--default-background);
+    font-family: Roboto, Verdana, Courier;
+    color: var(--inverse-color);
+    margin:0px;
+    min-width: 50em;;
+}
+div.topBar {
+    overflow:auto;
+    background-color: var(--default-blue);
+    border-radius: 1em;
+    text-transform: capitalize;
+}
+
+.topLeft, .topRight {
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: var(--scheme1);
+}
+div.boxElement {
+    padding: 1%;
+    margin:1%;
+    border: 10em;
+    background-color: var(--default-blue);
+}
+.myName {
+    font-family: Copse;
+    color: var(--inverse-color);
+}
+.center{
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.navButton{   
+    width: 100%;
+    height: 9em;
+    border: .4em;
+    margin: 1em;
+    border-radius: .3em;
+    text-align:center;
+}
+a.navBar{
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 1.2em;
+    height: 50%;
+    background-color: var(--scheme2);
+    text-align: right;
+    padding: .5em;
+    border-radius: .2em;
+}
+.leftSide, .rightSide {
+    background-color: var(--scheme1);
+    width: 50%;
+    border:0em;
+    padding: 0em;
+    border-radius:.3em;
+    margin:0em;
+    padding-bottom: 20em;
+    color: white;
+}
+.leftSide {
+    margin-right:1em;
+}
+.rightSide {
+    margin-left:1em;
+}
+
+h1 {
+    font-size: 3em;
+    font-spacing:.1em;
+    letter-spacing: .05em;
+    line-height:.5;
+}
+.bottomBar {
+    color: black;
+}

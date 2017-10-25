@@ -1,0 +1,119 @@
+.resumePage {
+    padding: .5em;
+    margin: 0em;
+    border: 0em;
+}
+.sectionDescriptor, .sectionDescriptorFirst, .sectionDescriptorRight {
+    font-size: 1.8em;
+    font-weight: 600;
+    padding: 0em;
+    margin: 0em;
+    border: 0em;
+}
+.sectionDescriptorFirst {
+    margin-top: .5em;
+}
+.sectionDescriptorRight {
+    margin-top: 3.5em;
+}
+.bigName {
+    font-size: 5em;
+    font-weight: 900;
+}
+.subBigName {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+.contactInfo {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+/************************ Resume Subject Addition *****************************/
+.resumeAddition {
+    display: -webkit-flex;
+    padding: .5em;
+}
+/********************/
+.location {
+    width: 30%;
+}
+.group {
+    font-size: 1em;
+    font-weight: 600;
+}
+.groupLocation, .date { 
+    font-size: .9em;
+    font-weight: 200;
+    font-style: italic;
+}
+
+/*__________________*/
+/********************/
+.jobTitle {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.langSpec {
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: 900;
+    text-align: right !important;
+}
+
+ul {
+    list-style-type: circle;
+    font-weight: 200 !important;
+    font-size: .9em;
+    padding: 0em;
+    padding-left: 1.2em;
+    border: 0em;
+    margin: 0em;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Sad table styling */
+table {
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+    margin: 0em;
+    padding: 0em;
+    border: 0em;
+}
+tr {
+    vertical-align: top;
+}
+th {
+    padding: 0em;
+    margin: 0em;
+    border: 0em;
+    border-collapse: collapse;
+}
+
+
+th.leftColumn {
+    padding-right: 4em; 
+    width: 65%;
+}
+th.rightColumn {
+    padding-right: 1em;
+}
+
+/* left column stuff */
+th.addLeft {
+    padding-right: 2em; 
+    width: 33%;
+}
+th.addRight {
+    width: 67%;
+}
+
+
+th.job {
+    width: 70%;
+}
+th.lang {
+    width: 30%
+    text-align: right !important;
+}

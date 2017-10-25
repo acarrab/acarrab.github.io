@@ -1,0 +1,38 @@
+<!doctype html>
+<html style="height:100%;">
+    <head>
+        <meta charset="utf-8">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" type="text/css" href="resStyle.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="canvasNodes.js"></script>
+        <base target="_blank">
+    </head>
+    <body style="height: 100%; background: white !important; text-align: center;">
+            <div style="width: 100%">
+                <div id="resumeHolder">
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+     $(document).ready( function() {
+         function loadResume() {
+             var xhttp = new XMLHttpRequest();
+             xhttp.onreadystatechange = function() {
+                 if (this.readyState == 4 && this.status == 200) {
+                     document.getElementById("resumeHolder").innerHTML = this.responseText;
+                 }
+             };
+             xhttp.open("GET", "rawResume.html", true);
+             xhttp.send();
+         }
+         loadResume()
+     } );
+
+    </script>
+</html>
+
+

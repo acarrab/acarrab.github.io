@@ -1,0 +1,241 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Copse';
+@import 'https://fonts.googleapis.com/css?family=Pavanam';
+:root {
+    --background: #fbf2ea;#f7e6d4;;;;#e6b37f;/*#000000;*/linen;/**/
+    --inner-background: #ffffff;#fbf2ea;
+    --inverse-background: #070b1d; 
+    --text-color1: linen;
+    --text-color2: black;
+    --header-background:  #54637f;
+    --off-linen: #ebd9c7;
+
+
+    /*emacs colors*/
+    --black: #000000;
+    --red: #cd0000;
+    --green: #00cd00;
+    --yellow: #cdcd00;
+    --blue: #0000ee;
+    --magenta: #cd00cd;
+    --cyan: #00cdcd;
+    --white: #e5e5e5;
+}
+body {
+    background-color: var(--background);
+    font-family: Roboto, Verdana, Courier;
+    color: var(--text-color2);
+    margin: 0px;
+    min-width: 58em;
+}
+
+/* ------------------------ Header Related Styling -------------------------- */
+header {
+    width: 100%;
+    height: 5em;
+    background-color: var(--inverse-background);
+    display: -webkit-flex;
+    box-shadow: 0px 10px 50px #333333;888888;
+}
+.topLeft {
+    width:50%;
+    margin: .5em;
+    text-align: left;
+}
+.topRight {
+    width:50%;
+    text-align: right;
+}
+.topLeft, .topRight {
+    height: inherit;
+    margin: 0em;
+    border: 0em;
+    padding: 1em;;
+}
+/* ~~~~~~~~~~~~~~~~ Left Side ~~~~~~~~~~~~~~~~~ */
+h1 {
+    margin: 0em;
+    border: 0em;
+    padding: 0em;
+    color: var(--text-color1);
+}
+h1.myName {
+    height: 50%;
+    font-size: 2em;
+    font-family: Pavanam, sans-serif;
+    letter-spacing: .05em;
+}
+h1.subName {
+    font-size: .9em;
+}
+/* ~~~~~~~~~~~~~~~~ Right Side ~~~~~~~~~~~~~~~~ */
+.navBar {
+    border: 6em;
+    padding-top: 1em;
+}
+a {
+    text-decoration:none;
+}
+a.navButton {
+    text-decoration: none;
+    width: 2.7em;
+    text-align: center;
+    color: var(--text-color1);
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 2em;
+
+}
+a.navButton:link, a.navButton:visited{
+    
+}
+a.navButton:hover {
+    color:#f26868;
+}
+a.navButton:active {
+
+}
+a.navButtonRight {
+    border-style: solid;
+}
+
+
+/* ------------------------ Center Related Styling -------------------------- */
+.center {
+    display: table;
+    margin-top: 0em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60em;
+    padding: 0em;
+    /*border-radius: 1em;*/
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    background-color: var(--off-linen);
+    color: var(--text-color2);
+    box-shadow: inset 3px 4px 8px #888888 !important;
+    box-shadow: 5px 10px 1px #bbbbbb;
+}
+.otherBlock, .firstBlock{
+    text-align: left;
+
+    margin:.6em;
+    padding: 1em;
+    border: 2em;
+
+    border-radius: 1em;
+    background: var(--inner-background);
+    box-shadow: 3px 4px 4px #aaaaaa;/*888888;*/
+}
+.firstBlock {
+    background-color: var(--inverse-background);
+    color: var(--text-color1);
+    margin-top: 0em;
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    border: .4em
+    border-top: 0em;
+    /*box-shadow: inset 0px -2px 50px #333333;888888;*/
+}
+h2 { line-height: 50%; }
+h3 { line-height: 10%; }
+p1.Title {
+    font-size: 130%;
+    text-decoration: bold;
+}
+
+address {
+    display: block;
+    text-align: left;
+}
+
+.story {
+    border-radius: .2em;
+    padding: .5em;
+    padding-top:.3em;
+    padding-bottom:.2em;
+
+    margin: 0em;
+}
+.columnContainer {
+    /*display: -webkit-flex;*/
+    margin: 0em;
+}
+.column{
+    width: 100%;
+    display: block;
+    padding: 0em;
+}
+.two {
+    width: 100% !important;
+}
+   
+
+/* ~~~~~~~~~~~~~~~ Posts Style ~~~~~~~~~~~~~~~~ */
+img {
+    width: 90%;
+    height: 20em;
+    border-radius: .5em;
+    text-align: center;
+}
+.storyBottom {
+    text-align:center;
+    padding: 1em;
+    margin-left: 20%;
+    margin-right:20%;
+    width: 60%;
+    border-radius: .5em;
+    background-color: var(--off-linen);
+    background-color: white;
+}
+/* ~~~~~~~~~~~~~~~ Project Style ~~~~~~~~~~~~~~~~ */
+.titleLink {
+    display:-webkit-flex;
+    width:100%;
+    height: 3em;
+}
+h2.projectTitle {
+    display:inline;
+    width:80%;
+}
+.buttonDiv {
+    display:inline;
+    text-align: right; 
+    width: 20%;
+}
+
+
+.info {
+    width: 80%;
+}
+.explore {
+    text-align:right;
+    width: 20%;
+}
+a {
+    text-decoration:none;
+}
+a.projectButton {
+    text-decoration: none;
+    font-weight:bold;
+    width: 2.7em;
+    text-align: center;
+    color: var(--text-color2);
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 1em;
+    line-height: 5em;
+}
+a.projectButton:link, a.navButton:visited{
+    border-style: solid;    
+}
+a.projectButton:hover {
+    color:#f26868;
+}
