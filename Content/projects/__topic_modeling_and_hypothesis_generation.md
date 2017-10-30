@@ -50,7 +50,49 @@ health outcome
 human cell
 ```
 
+#### Problem with loss of lines
 
+Some of the abstracts were parsed out entirely, so lines were removed, which made us lose tracking information of the document id. There were about 50 that contained all unique words and we can no longer map back the lines since they are different. In order to resolve this issue, it is required to go back and append a non-unique sentence that will not affect the lines.
+
+It was recommended to fix this problem by appending `the quick brown fox. ` to each document which are placed on separate lines, which was easy to do with sed via a simple bash script
+
+**quickBrownFoxify.sh**
+```bash
+#!/bin/bash
+
+newFile=qbf_$1
+cp $1 $newFile
+sed -i -e 's/^/Quick Brown Fox. /' $newFile
+```
+
+which is called by
+
+```bash
+./quickBrownFoxify.sh allAbstracts.txt
+```
+
+Now It must be ran again to create the n-grams.
+
+#### Creating random subset of documents from full-texts for testing
+
+Each document is given a random and equal chance of selection while walking through file for a total of 100,000 randomly selected documents.
+
+```python
+import random
+n = 1328035
+k = 100000
+
+with open("fullTexts_subset.txt", "w") as fout:
+    with open("allFulltexts.txt", "r") as fin:
+        for document in fin:
+            # gives us proper chance of selecting document
+            if 0 == random.randrange(0, int(n / k)) or n == k:
+                fout.write(document)
+                k -= 1
+                if k % 10000 == 0: print("written: " + str(100000 - k))
+                if k == 0: break
+            n -= 1
+```
 
 ### Removal of files that are too new from the dataset
 
