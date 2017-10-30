@@ -6,7 +6,7 @@ We are seeing if it helps to extract additional information from the full-texts 
 
 ## Progress
 
-*Last updated: Tuesday, October 24th 2017*
+*Last updated: Tuesday, October 30th 2017*
 
 All code is parallelized and ran on the [Clemson Palmetto Cluster](https://www.palmetto.clemson.edu/palmetto/userguide_palmetto_overview.html) in order to complete tasks in reasonable amount of time.
 Using [mpi4py](http://mpi4py.readthedocs.io/en/stable/) in order to run text extraction on the million documents in parallel on the Clemson Palmetto Cluster
@@ -17,7 +17,9 @@ Started by downloading 1.7 million documents over ftp from [PubMed Central](http
     - Down to 1.4 million documents because: some did not have abstracts, were not research papers, or were not in proper xml format.
 1. Wrote and ran code to clean text of unicode expressions and in text equations using regular expressions.
 1. Used [NLTK](http://www.nltk.org/) in order to lemmatize text in order to be passed into the next part of the pipeline, the creation of the n_grams.
-1. Ran Abstracts through topic modeling stage of Moliere Pipeline
+1. Ran Abstracts through n-gram stage of Moliere Pipeline
+
+## Weekly Log
 
 ### N-gram creation
 
@@ -25,7 +27,30 @@ Started by downloading 1.7 million documents over ftp from [PubMed Central](http
 
 Learned how create n-grams through ToPMine with help of Justin, then ran the process on Abstracts document subset.
 
-Currently only on Abstract documents and will analyze soon analyze the validity of the results that were found before running the long (maybe week long) n-gram creation on the rest of the documents.
+Currently only on Abstract documents and analyzed the validity of the results through randomly looking at generated topics by looking through topics and seeing if topics made sense. All of them, to me, seem to be valid pairings of things that occur in the same statement so I will be moving ahead with running n-gram creation on a subset of the full-texts now.
+
+Here are some of the topics that were found.
+
+```txt
+significantly reduced
+data were collected
+wa examined
+amino acid
+increased risk
+wa present
+cell type
+cell grown
+closed loop
+complex structure
+set of gene
+technique based
+high dose
+survival rate
+health outcome
+human cell
+```
+
+
 
 ### Removal of files that are too new from the dataset
 
