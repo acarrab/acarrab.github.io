@@ -21,7 +21,7 @@ Started by downloading 1.7 million documents over ftp from [PubMed Central](http
 
 ## Weekly Log
 
-### N-gram creation
+### N-gram creation using [ToPMine](https://arxiv.org/pdf/1406.6312.pdf)
 
 *Monday, October 30th*
 
