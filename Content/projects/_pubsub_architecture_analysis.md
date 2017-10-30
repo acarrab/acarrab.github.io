@@ -1,5 +1,6 @@
 # Research with Human-Centered Cloud Robotics group @ Clemson
-
+## Simulation of network's effect on real-time environemnt
+![](../Resources/pubSubRep.png)
 ### Tools for Analysis
 
 *Tuesday, November 15th, 2016*
@@ -42,7 +43,7 @@ called Broker, Plant, and Controller. The topology is shown in the diagram below
 <center><em>Network Topology</em></center>
 
 
-Although an extremely basic topology, it will be perfect for simple analysis of the effect of latency and
+Although a basic topology, it will be perfect for simple analysis of the effect of latency and
 time delay between transmissions for the data between the host, broker, and plant. Originally there were
 some problems with creating the network topology, because I was not running a controller on my machine.
 

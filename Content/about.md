@@ -2,14 +2,16 @@
 
 Hello people, this page is coming to you live from a server somewhere on the interweb!
 
-Anyways, the name is Angelo and I am a Senior Computer Science Student at
+Anyways, my name is Angelo and I am a Senior Computer Science Student at
 Clemson. I do things and some of those things are, well, on this website.
 
 I like long walks in the park and most music. I also liked the work I have done in the past, which is below.
 
 ## Honors Thesis Work
 
-*2017-2018 (present)* [more info](#/projects/topic_modeling_and_hypothesis_generation)
+*2017-2018 (present)* 
+
+**[MORE INFO](#/projects/topic_modeling_and_hypothesis_generation)**
 
 
 Year long project with goal of improving existing techniques for hypothesis generation by extracting relevant information from research papers.
@@ -24,11 +26,15 @@ I am working with big data (1.7 million Medical Research Articles from [PubMed C
 
 <center><em>That is me kneeling at the bottom right</em></center>
 
-Worked as a full-stack software engineering intern and developed things with JavaScript, Angular, JQuery, C#, and SQL.
+Worked on a Scrum team within an ASP.net web application, called Raisers Edge NXT, with Angular 2 on the front-end and C# and SQL on the back-end. Updated and added health pages that gave developers the tools to better analyze database health and edit database package status. Reduced the number of health pages by making a more centralized location for health data.
+
+Specifically, wrote JavaScript with Angular 2 Components and Services. As well as JavaScript Jasmine unit tests. On the back-end wrote in C# with SpecFlow unit tests and integration tests. Wrote basic SQL as well.
 
 ### Research with Human-Centered Cloud Robotics @ Clemson University
 
-*Aug. 2016 - Jan. 2017* [more info](#/projects/pubsub_architecture_analysis)
+*Aug. 2016 - Jan. 2017* 
+
+**[MORE INFO](#/projects/pubsub_architecture_analysis)**
 
 - Analyzed pubsub architectures performance in real-time environments, or simulations of real-time environments with no prediction.
 - Simulations done in Mininet with python scripts for generating the network topology.
@@ -36,7 +42,9 @@ Worked as a full-stack software engineering intern and developed things with Jav
 
 ## Research at Rutgers University with [DIMACS](http://dimacs.rutgers.edu/)
 
-*Summer 2016* [more info](#/projects/multi-robot_environment)
+*Summer 2016* 
+
+**[MORE INFO](#/projects/multi-robot_environment)**
 
 Joined research experience for Undergrads program at Rutgers University.
 

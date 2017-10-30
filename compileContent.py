@@ -47,7 +47,7 @@ class Directory:
         for page in self.pages:
             wln(spaces + "{")
 
-            wln(spaces * 2 + 'name: "{}",'.format(page.name))
+            wln(spaces * 2 + 'name: "{}",'.format(page.name.strip()))
             wln(spaces * 2 + 'text: "{}",'.format(page.text))
             wln(spaces * 2 + 'route: "{}"'.format(page.route))
                 

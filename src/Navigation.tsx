@@ -9,44 +9,54 @@ interface MultiLinkProps {
 }
 
 class MultiLink extends React.Component<MultiLinkProps> {
+    state: { pages: Array<JSX.Element> }
+    constructor(props: MultiLinkProps) {
+        super(props);
+        this.state = {
+            pages: props.directory.pages.map((page: Page) => {
+                return (<li id={name}><Link to={page.route}>{page.name}</Link></li>);
+            })
+        };
+    }
     render() {
         return (
-            <li className="dropdown">
+            <li key={"directory_" + this.props.directory.title + this.props.directory.title} className="dropdown">
                 <a className="dropdown-toggle" data-toggle="dropdown">
                     {this.props.directory.title}
                     <span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                    {
-                        this.props.directory.pages.map((page: Page) => {
-                            return (<li><Link to={page.route}>{page.name}</Link></li>);
-                        })
-                    }
+                    {this.state.pages}
                 </ul>
             </li>
         )
     }
 }
 class NavigationLinks extends React.Component {
+    state: { pages: Array<JSX.Element>, multiPages: Array<JSX.Element> }
+    constructor(props) {
+        super(props);
+        this.state = {
+            pages: Content.pages.map((page: Page) => {
+                return (<li key={page.name}><Link to={page.route}>{page.name}</Link></li>);
+            }),
+            multiPages: Content.children.map((directory: Directory) => {
+                return <MultiLink key={"dir_"+directory.title} directory={directory} />
+            })
+        };
+    }
     render() {
         return (
             <div className="collapse navbar-collapse" id="navLinks">
                 <ul className="nav navbar-nav">
-
-                    {
-                        Content.pages.map((page: Page) => {
-                            return (<li><Link to={page.route}>{page.name}</Link></li>);
-                        })
-                    }
-                    {
-                        Content.children.map((directory: Directory) => {
-                            return <MultiLink directory={directory} />
-                        })
-                    }
+                    {this.state.pages}
+                    {this.state.multiPages}
                 </ul>
             </div>
         );
     }
 }
+
+
 
 export default class NavigationBar extends React.Component {
     public render() {

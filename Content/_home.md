@@ -18,3 +18,8 @@
 
 - Learning more about different statistical machine learning processes, particularly deep-learning
   - [more info](#/projects/deep_learning)
+
+
+## Past Work
+- [Multi-agent Environment Research (REU)](#/projects/multi-robot_environment)
+- [PubSub Architecture Analysis](#/projects/pubsub_architecture_analysis)
