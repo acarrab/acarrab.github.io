@@ -1,5 +1,6 @@
 import pexpect 
 import re 
+import markdown2
 
 fout = open("./src/MarkdownPages.tsx", "w")
 
@@ -7,6 +8,17 @@ allPages = "["
 def wr(s):
     global fout
     fout.write(s)
+
+def convertToHtml(fileName):
+    return pexpect.run("pandoc {} -f markdown -t html5 -s".format(fileName)).decode()
+
+
+def convertToText(fileName):
+    file = convertToHtml(fileName)
+    print(file);
+
+    x = file.replace("\r\n", "\\n");
+    return x.replace("'", "\\'")
 
 def getDirectories(directory = "./Content"):
     return pexpect.run("find {} -mindepth 1 -maxdepth 1 -type d".format(directory)).decode().split()
@@ -21,7 +33,7 @@ def getPages(directory = "./Content"):
 
 class Page:
     def __init__(self, fileName = "./Content/home.md"):
-        self.text = open(fileName, "r").read().replace("\n", "\\n").replace("\"", "\\\"")
+        self.text = convertToText(fileName)
         self.name = re.search(r"([^\/]*)\.md", fileName).group(1).replace("_", " ").title()
         self.route = fileName.replace("//", "/").replace("./Content", "").replace(".md", "") if self.name != " Home" else "/"
         print(self.route)
@@ -47,9 +59,9 @@ class Directory:
         for page in self.pages:
             wln(spaces + "{")
 
-            wln(spaces * 2 + 'name: "{}",'.format(page.name.strip()))
-            wln(spaces * 2 + 'text: "{}",'.format(page.text))
-            wln(spaces * 2 + 'route: "{}"'.format(page.route))
+            wln(spaces * 2 + "name: '{}',".format(page.name.strip()))
+            wln(spaces * 2 + "text: '{}',".format(page.text))
+            wln(spaces * 2 + "route: '{}'".format(page.route))
                 
             wr(sp + spaces + "}")
             i += 1
@@ -128,10 +140,12 @@ def lettersSanitized(s):
 
 i = 0;
 allPages = d.linearizePages();
-wln("<Route exact path='/' component={() => (<ReactMarkdown source={\"" + "".join([x for x in lettersSanitized(allPages[0].text)]) + "\"} />)} />")
+
+
+wln("<Route exact path='/' component={() => (<div dangerouslySetInnerHTML={{ __html: '" + allPages[0].text + "'}} />)} />")
 
 for page in allPages[1:]:
-    wln("<Route path='"+page.route+"' component={() => (<ReactMarkdown source={\""+ "".join([x for x in lettersSanitized(page.text)]) + "\"} />)} />")
+    wln("<Route path='"+page.route+"' component={() => (<div dangerouslySetInnerHTML={{ __html: '" + page.text + "'}} />)} />")
     i += 1
 
     

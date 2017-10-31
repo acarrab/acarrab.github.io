@@ -31,24 +31,22 @@ Currently only on Abstract documents and analyzed the validity of the results th
 
 Here are some of the topics that were found.
 
-```txt
-significantly reduced
-data were collected
-wa examined
-amino acid
-increased risk
-wa present
-cell type
-cell grown
-closed loop
-complex structure
-set of gene
-technique based
-high dose
-survival rate
-health outcome
-human cell
-```
+    significantly reduced
+    data were collected
+    wa examined
+    amino acid
+    increased risk
+    wa present
+    cell type
+    cell grown
+    closed loop
+    complex structure
+    set of gene
+    technique based
+    high dose
+    survival rate
+    health outcome
+    human cell
 
 #### Problem with loss of lines
 

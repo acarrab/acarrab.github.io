@@ -41,6 +41,11 @@ center {
 video {
     width: 100%;
 }
+
+figure {
+    width: 100%;
+    text-align: center;
+}
 img {
     width: 20em;
     text-align: center;

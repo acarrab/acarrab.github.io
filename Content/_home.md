@@ -11,8 +11,7 @@
 
 ### Research
 
-- [Topic Modeling and Hypothesis Generation](#/projects/topic_modeling_and_hypothesis_generation)
-  - Applying [LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) topic modeling to large corpus (1.7 million documents) of medical research papers from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/)
+- [Topic Modeling and Hypothesis Generation (Data Mining Research)](#/projects/topic_modeling_and_hypothesis_generation)
 
 ### Personal/Academic
 
