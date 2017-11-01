@@ -5,20 +5,26 @@ Hello people, this page is coming to you live from a server somewhere on the int
 Anyways, my name is Angelo and I am a Senior Computer Science Student at
 Clemson. I do things and some of those things are, well, on this website.
 
-I like long walks in the park and most music. I also liked the work I have done in the past, which is below.
+## Interests
 
-## Honors Thesis Work
+I started out at Clemson University on a pre-med and computer science track; However, saw the impact that was possible by going with a more computer science oriented approach. Since then, I have worked on and helped with a handful of medically based research projects. I plan on going to graduate school and applying/developing my skills in order to contribute to the progression of the medical field.
+
+I enjoy working with algorithm design, machine learning, and big data.
+
+[Websites](/OldWebsite) and other computer graphics related applications are fun as well.
+
+## Projects
+### Honors Thesis Work
 
 *2017-2018 (present)* 
 
 **[MORE INFO](#/projects/topic_modeling_and_hypothesis_generation)**
 
-
 Year long project with goal of improving existing techniques for hypothesis generation by extracting relevant information from research papers.
 
 I am working with big data (1.7 million Medical Research Articles from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/))
 
-## Software engineering intern at [Blackbaud](https://www.blackbaud.com/)
+### Software engineering intern at [Blackbaud](https://www.blackbaud.com/)
 
 *Summer 2017*
 
@@ -26,7 +32,9 @@ I am working with big data (1.7 million Medical Research Articles from [PubMed C
 
 <center><em>That is me kneeling at the bottom right</em></center>
 
-Worked on a Scrum team within an ASP.net web application, called Raisers Edge NXT, with Angular 2 on the front-end and C# and SQL on the back-end. Updated and added health pages that gave developers the tools to better analyze database health and edit database package status. Reduced the number of health pages by making a more centralized location for health data.
+Blackbaud is a company that creates software tailored for nonprofit organizations. The most used product is Raiser's Edge, which is used by nonprofits when determining how to most efficiently handle their donors.
+
+Worked on a Scrum team within an ASP.net web application called Raisers Edge NXT—which makes up about 30% of their sales—with Angular 2 on the front-end and C# and SQL on the back-end. Updated and added health pages that gave developers the tools to better analyze database health and edit database package status. Reduced the number of health pages by making a more centralized location for health data.
 
 Specifically, wrote JavaScript with Angular 2 Components and Services. As well as JavaScript Jasmine unit tests. On the back-end wrote in C# with SpecFlow unit tests and integration tests. Wrote basic SQL as well.
 
@@ -40,7 +48,7 @@ Specifically, wrote JavaScript with Angular 2 Components and Services. As well a
 - Simulations done in Mininet with python scripts for generating the network topology.
 - Looked specifically at MQTT and Kafka
 
-## Research at Rutgers University with [DIMACS](http://dimacs.rutgers.edu/)
+### Research at Rutgers University with [DIMACS](http://dimacs.rutgers.edu/)
 
 *Summer 2016* 
 
@@ -57,14 +65,14 @@ Joined research experience for Undergrads program at Rutgers University.
 
 Determined through self-created simulations that there were no sharp transition in traffic, based on changes in robot size and start-end locality.
 
-## Applied Algorithms Lab @ Clemson University 
+### Applied Algorithms Lab @ Clemson University
 
 *Jan 2016 - June 2016*
 
 Implemented DTW Search with modifications to improve result quality with noisy signal.
 For EEG database to add search functionality for Neurologists at MUSC research hospital.
 
-## Virtual Environment Group @ Clemson University
+### Virtual Environment Group @ Clemson University
 
 *Sep. 2014 - Aug. 2015*
 

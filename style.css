@@ -27,6 +27,7 @@ body {
     -moz-box-shadow: 0em 0em .5em 0em #ccc;
     -webkit-box-shadow: 0em 0em .5em 0em #ccc;
     box-shadow: 0em 0em .5em 0em #ccc;
+    padding-bottom: 1em;
 }
 
 p > img, p > a > img {
@@ -47,7 +48,7 @@ figure {
     text-align: center;
 }
 img {
-    width: 20em;
+    width: 30em;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -71,13 +72,16 @@ img {
 }
 .navbar-brand {
     font-weight: 100;
-    font-size: 2em;
-    padding-left: 1em;
-    padding-right: 1em;
+    font-size: 1.8em;
+    padding-left: .5em;
+    padding-right: .5em;
     border-right: #eee;
     border-right-width: 1px;
     border-right-style: solid;
-    margin-right: .5em;
+    margin: 0em;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
 #footerPadding {
     height: 4em;
@@ -136,3 +140,16 @@ p  { margin-left: .6em; }
 
 
 
+
+
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}

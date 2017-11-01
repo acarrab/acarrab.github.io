@@ -15,8 +15,6 @@ def convertToHtml(fileName):
 
 def convertToText(fileName):
     file = convertToHtml(fileName)
-    print(file);
-
     x = file.replace("\r\n", "\\n");
     return x.replace("'", "\\'")
 
