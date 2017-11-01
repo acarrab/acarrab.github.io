@@ -6,6 +6,7 @@ Feel free to download and look at my [research paper](../Resources/finalResearch
 ## Discrete Representation of multi-agent environment
 
 ![](../Resources/DiscreteSmaller.gif)
+
 <center><em>Discrete Multi-Robot Environment Simulation</em></center>
 
 ### Diagram explanation
