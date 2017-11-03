@@ -1,4 +1,4 @@
-# Honors Research Project for Senior Year
+# Research With [ACS](https://people.cs.clemson.edu/~isafro/group.html)
 
 This project is a school year long project in which I am working along side grad students in the ACS Lab (Algorithms and Computational Sciences Lab). I am adding to the work being done by [Justin Sybrandt](http://sybrandt.com/) by determining if we can increase the accuracy of Moliere, a hypothesis generation method.
 
