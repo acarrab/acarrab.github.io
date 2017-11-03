@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="honors-research-project-for-senior-year">Honors Research Project for Senior Year</h1>
+<p>This project is a school year long project in which I am working along side grad students in the ACS Lab (Algorithms and Computational Sciences Lab). I am adding to the work being done by <a href="http://sybrandt.com/">Justin Sybrandt</a> by determining if we can increase the accuracy of Moliere, a hypothesis generation method.</p>
+<p>We are seeing if it helps to extract additional information from the full-texts and, if so, how to best do so.</p>
+<h2 id="progress">Progress</h2>
+<p><em>Last updated: Tuesday, October 30th 2017</em></p>
+<p>All code is parallelized and ran on the <a href="https://www.palmetto.clemson.edu/palmetto/userguide_palmetto_overview.html">Clemson Palmetto Cluster</a> in order to complete tasks in reasonable amount of time. Using <a href="http://mpi4py.readthedocs.io/en/stable/">mpi4py</a> in order to run text extraction on the million documents in parallel on the Clemson Palmetto Cluster</p>
+<p>Started by downloading 1.7 million documents over ftp from <a href="https://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a></p>
+<ol type="1">
+<li>Wrote code to parse xml documents tree structure with hierarchical selection by walking through xml tree and grabbing what I need (example under <strong>hierarchical selection example</strong> section)
+<ul>
+<li>Down to 1.4 million documents because: some did not have abstracts, were not research papers, or were not in proper xml format.</li>
+</ul></li>
+<li>Wrote and ran code to clean text of unicode expressions and in text equations using regular expressions.</li>
+<li>Used <a href="http://www.nltk.org/">NLTK</a> in order to lemmatize text in order to be passed into the next part of the pipeline, the creation of the n_grams.</li>
+<li>Ran Abstracts through n-gram stage of Moliere Pipeline</li>
+</ol>
+<h2 id="weekly-log">Weekly Log</h2>
+<h3 id="n-gram-creation-using-topmine">N-gram creation using <a href="https://arxiv.org/pdf/1406.6312.pdf">ToPMine</a></h3>
+<p><em>Monday, October 30th</em></p>
+<p>Learned how create n-grams through ToPMine with help of Justin, then ran the process on Abstracts document subset.</p>
+<p>Currently only on Abstract documents and analyzed the validity of the results through randomly looking at generated topics by looking through topics and seeing if topics made sense. All of them, to me, seem to be valid pairings of things that occur in the same statement so I will be moving ahead with running n-gram creation on a subset of the full-texts now.</p>
+<p>Here are some of the topics that were found.</p>
+<pre><code>significantly reduced
+data were collected
+wa examined
+amino acid
+increased risk
+wa present
+cell type
+cell grown
+closed loop
+complex structure
+set of gene
+technique based
+high dose
+survival rate
+health outcome
+human cell</code></pre>
+<h4 id="problem-with-loss-of-lines">Problem with loss of lines</h4>
+<p>Some of the abstracts were parsed out entirely, so lines were removed, which made us lose tracking information of the document id. There were about 50 that contained all unique words and we can no longer map back the lines since they are different. In order to resolve this issue, it is required to go back and append a non-unique sentence that will not affect the lines.</p>
+<p>It was recommended to fix this problem by appending <code>the quick brown fox.</code> to each document which are placed on separate lines, which was easy to do with sed via a simple bash script</p>
+<p><strong>quickBrownFoxify.sh</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+
+<span class="va">newFile=</span>qbf_<span class="va">$1</span>
+<span class="fu">cp</span> <span class="va">$1</span> <span class="va">$newFile</span>
+<span class="fu">sed</span> -i -e <span class="st">&#39;s/^/Quick Brown Fox. /&#39;</span> <span class="va">$newFile</span></code></pre></div>
+<p>which is called by</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./quickBrownFoxify.sh</span> allAbstracts.txt</code></pre></div>
+<p>Now It must be ran again to create the n-grams.</p>
+<h4 id="creating-random-subset-of-documents-from-full-texts-for-testing">Creating random subset of documents from full-texts for testing</h4>
+<p>Each document is given a random and equal chance of selection while walking through file for a total of 100,000 randomly selected documents.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
+n <span class="op">=</span> <span class="dv">1328035</span>
+k <span class="op">=</span> <span class="dv">100000</span>
+
+<span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;fullTexts_subset.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> fout:
+    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;allFulltexts.txt&quot;</span>, <span class="st">&quot;r&quot;</span>) <span class="im">as</span> fin:
+        <span class="cf">for</span> document <span class="kw">in</span> fin:
+            <span class="co"># gives us proper chance of selecting document</span>
+            <span class="cf">if</span> <span class="dv">0</span> <span class="op">==</span> random.randrange(<span class="dv">0</span>, <span class="bu">int</span>(n <span class="op">/</span> k)) <span class="kw">or</span> n <span class="op">==</span> k:
+                fout.write(document)
+                k <span class="op">-=</span> <span class="dv">1</span>
+                <span class="cf">if</span> k <span class="op">%</span> <span class="dv">10000</span> <span class="op">==</span> <span class="dv">0</span>: <span class="bu">print</span>(<span class="st">&quot;written: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(<span class="dv">100000</span> <span class="op">-</span> k))
+                <span class="cf">if</span> k <span class="op">==</span> <span class="dv">0</span>: <span class="cf">break</span>
+            n <span class="op">-=</span> <span class="dv">1</span></code></pre></div>
+<h3 id="removal-of-files-that-are-too-new-from-the-dataset">Removal of files that are too new from the dataset</h3>
+<p><em>Tuesday, October 24th</em></p>
+<p>Went back through pipeline that has been created so far and added a small amount of code to determine if the publish date of the article was this year as we will be removing those from the data set in order to see if prediction is valid for this year. No need for predicting things we really don't know yet, because there is no basis for comparison.</p>
+<p>At the end of this process, it has been determined that there are now only 1.3 million articles left in totality. There are a suspicious amount of articles that are lost to being too new and I will be looking at that later, but for now am just working on lemmatizing the text using different methods.</p>
+<p>Here is the breakdown of documents (that are currently stored in separate files according to the number of processes):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">[<span class="ex">acarrab</span>]$ wc -l Abstracts_* <span class="kw">|</span> <span class="fu">grep</span> total
+   <span class="ex">1328035</span> total</code></pre></div>
+<p>Here is the breakdown of how the documents were lost.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">[<span class="ex">acarrab</span>]$ wc -l *.log
+  <span class="ex">151427</span> failedDuringParsingOrNoAbstract.log
+   <span class="ex">53872</span> hasAbstractAndFailed.log
+  <span class="ex">164944</span> tooNewButHadAbstract.log
+  <span class="ex">370243</span> total</code></pre></div>
+<p>NOTE: <code>tooNewButHadAbstract.log</code> is not necessarily accurate since it would put 3000 as year if the parsing could not find the date.</p>
+<p>I have looked at lemmatization through the means of using specialist NLP tool in order to use those to lemmatize the text, but to no avail. (A lot more learning than initially thought was needed is needed in order to use their tools).</p>
+<p>In order to get some results, used the NLTK's lemmatizer in order lemmatize the text from the research papers. The papers are now ready for the next phase, the building of the n-grams.</p>
+<p>After speaking with Justin, he has seen that the benefits of using the Specialist NLP Tools is actually too slow for our data-set size in the end anyways and NLTK lemmatization does a good job and gives promising and significant results within the research that he has done.</p>
+<h3 id="increasing-valid-parsing-rate">Increasing valid parsing rate</h3>
+<p><em>Monday, October 16th</em></p>
+<p>After running the jobs in order to parse the documents, added basic statistics capturing that are added to files while running batch job on the almost 1.8 million documents. At the end of the run, there are counts for different types of errors</p>
+<ul>
+<li><p>Failure to parse xml errors</p></li>
+<li><p>Had abstract keyword within file, but still failed</p></li>
+<li><p>Failed for other reasons</p></li>
+</ul>
+<p>Given this information, I can now look at the files that failed yet had the abstract keyword and determine how to reduce the number of files that are failed to be parsed.</p>
+<h3 id="quality-analysis-of-xml-parsing">Quality analysis of xml parsing</h3>
+<p><em>Wednesday, October 11th</em></p>
+<p>Went through a random subset of the documents and looked at results from parsing in order to determine whether the parsing was doing what it should be doing. After making some modifications to the code written in the previous week, there is a good likelihood of valid parsing.</p>
+<p>Also inserted failure cases for parse if things like the abstracts were missing.</p>
+<p>Ran parsing parallelized on palmetto cluster and looked determined results so far. More validation should be done in order to make sure that most of the data are being used.</p>
+<p>Files are saved in only abstract format and also full-text and abstract format in order to create distinct sets of documents that can give good comparison.</p>
+<h4 id="regular-expression-cleaning-of-text">Regular expression cleaning of text</h4>
+<p>Text cleaning for later stages and applied to all text that is seen later in the pipeline</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#defined in a class</span>
+<span class="kw">def</span> stringClean(<span class="va">self</span>, s<span class="op">=</span><span class="st">&quot;&quot;</span>):
+    <span class="co"># removals that can bring together two terms and turn them into an ngram almost</span>
+    <span class="cf">for</span> removal <span class="kw">in</span> [<span class="st">&quot;/&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">&quot;</span>, <span class="st">&quot;&#39;&quot;</span>, <span class="st">&quot;,&quot;</span> <span class="st">&quot;^&quot;</span>]:
+        s <span class="op">=</span> s.replace(removal, <span class="st">&quot;&quot;</span>)
+
+    <span class="co"># more delimeters that are usually separating</span>
+    <span class="cf">for</span> delimiter <span class="kw">in</span> [<span class="st">&quot;;&quot;</span>]:
+        s <span class="op">=</span> s.replace(delimiter, <span class="st">&quot; &quot;</span>)
+
+    <span class="co"># conversions of items into ngrams/words </span>
+    <span class="cf">for</span> replacement <span class="kw">in</span> [(<span class="st">&quot;-&quot;</span>, <span class="st">&quot;_&quot;</span>), (<span class="st">&quot;%&quot;</span>, <span class="st">&quot; percent &quot;</span>), (<span class="st">&quot;@&quot;</span>, <span class="st">&quot; at &quot;</span>), (<span class="st">&quot;!&quot;</span>, <span class="st">&quot;.&quot;</span>)]:
+        s <span class="op">=</span> s.replace(replacement[<span class="dv">0</span>], replacement[<span class="dv">1</span>])
+
+    <span class="co"># fix repeated periods</span>
+    s <span class="op">=</span> re.sub(<span class="vs">r&quot;\.+&quot;</span>, <span class="st">&quot;.&quot;</span>, s)
+
+    <span class="co"># concatenate things together that are either digits</span>
+    <span class="co"># i.e 5.61094 to 5_61094 and P.M.C. to P_M_C.</span>
+    x <span class="op">=</span> re.sub(<span class="vs">r&quot;(\S)\.(\S)&quot;</span>, <span class="vs">r&quot;\1_\2&quot;</span>, s)
+
+    <span class="co"># remove reference tags</span>
+    s <span class="op">=</span> re.sub(<span class="vs">r&quot;\[[0-9]+\]&quot;</span>, <span class="st">&quot;&quot;</span>, s)
+
+    <span class="co"># should run only twice at most, i.e. once above and once in while loop</span>
+    <span class="cf">while</span> s <span class="op">!=</span> x:
+        s <span class="op">=</span> x
+        x <span class="op">=</span> re.sub(<span class="vs">r&quot;(\S)\.(\S)&quot;</span>, <span class="vs">r&quot;\1_\2&quot;</span>, s)
+
+    <span class="co"># reduce multiple spaces and non-text characters</span>
+    s <span class="op">=</span> re.sub(<span class="vs">r&quot;\s+&quot;</span>, <span class="st">&quot; &quot;</span>, re.sub(<span class="vs">r&quot;[^0-9a-z\.\-_\s]&quot;</span>, <span class="st">&quot; &quot;</span>, s))
+    <span class="co"># remove spaces that are in between text and period</span>
+    s <span class="op">=</span> re.sub(<span class="vs">r&quot;(\S)\s+\.\s&quot;</span>, <span class="vs">r&quot;\1\. &quot;</span>, s)
+    <span class="cf">return</span> s</code></pre></div>
+<h3 id="heirarchical-parsing-of-xml-documents">Heirarchical parsing of xml documents</h3>
+<p><em>Wednesday, October 4th</em></p>
+<p>Wrote code to parse out unicode characters as well as select out abstracts and other relevant text sections from the millions of documents.</p>
+<p>Created method for parsing out xml documents tags that are needed in with hierarchical selection.</p>
+<h4 id="example-and-explanation">Example and Explanation</h4>
+<p>Wrote code that extracts the following information by populating a data object with the keywords under the <code>&quot;GET&quot;</code> keyword under selection through chains of nested objects. For example, if an article title is found in the xml tree under <code>&lt;article-meta&gt;&lt;title-group&gt;&lt;article-title&gt;</code> tags, then <code>data[&quot;Title&quot;]</code> will be set to an array containing the found data.</p>
+<p>This is a kind of cool way to extract the required information from the xml tree structure. Kind of inspired by <a href="http://graphql.org/">graphql</a> selection statements in order to populate arrays of data.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">chains <span class="op">=</span> [
+    {
+        <span class="st">&quot;article-meta&quot;</span>: {
+            <span class="st">&quot;title-group&quot;</span>: {
+                <span class="st">&quot;article-title&quot;</span>: {
+                    <span class="st">&quot;GET&quot;</span>: <span class="st">&quot;Title&quot;</span>
+                }
+            }
+        },
+        <span class="st">&quot;kwd-group&quot;</span>: {
+            <span class="st">&quot;kwd&quot;</span>: {
+                <span class="st">&quot;GET&quot;</span>: <span class="st">&quot;Keywords&quot;</span>
+            }
+        },
+        <span class="st">&quot;contrib-group&quot;</span>: {
+            <span class="st">&quot;contrib&quot;</span>: {
+                <span class="st">&quot;GETALL&quot;</span>: <span class="st">&quot;Contributors&quot;</span>
+            }
+        },</code></pre></div>
+<h3 id="downloading-documents">Downloading Documents</h3>
+<p><em>Thursday, September 28th</em></p>
+<p>Downloaded the documents over ftp from <a href="https://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a> and moved them onto the Palmetto Cluster.</p>
+<p>Became familiar with some of <a href="http://www.nltk.org/">NLTK</a> and processes like lemmatization and stemming. We will be using lemmatization for our work.</p>
+<h3 id="data-selection-decision">Data Selection Decision</h3>
+<p><em>Wednesday, September 20th</em></p>
+<p>After looking through different sources of data this week and talking with my research mentor, it has been decided that using <a href="https://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a> as the sole data source should give enough documents to have good results. Furthermore, the data source contains parsed documents in XML format which allows for minimal use of additional parsing techniques from PDF format.</p>
+<h3 id="read-through-papers">Read through papers</h3>
+<p><em>Wednesday, September 13th</em></p>
+<p>After being introduced to subjects by reading research papers, I have a decent understanding of the process that is taken to get from the step of text extraction and input to hypothesis generation (with lack of understanding of some specifics). I will be speaking with Justin some time this week in order to work out some questions I have about the process, but overall seems like a very cool process.</p>
+<p>I am now starting to look through different sources of data. The main and quickest source to find is <a href="https://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a>, but—given that this should have on the order of a couple of million of articles—this could be enough if no other viable source of data is found.</p>
+<p>I have also been looking into different programs for parsing text from PDF format. ### Beginning of Research</p>
+<p><em>Wednesday, September 6th</em></p>
+<p>Met with Dr. Safro and Dr. Herzog, and Justin Sybrandt from the ACS Lab. Introduced to and talked with Justin about his research and where my additional work will fit in.</p>
+<p>What I will be doing is working on reapplying Topic Modeling and Hypothesis Generation with abstracts and also full-text research papers as data input. This will require:</p>
+<ol type="1">
+<li>Reading through paper on <a href="https://arxiv.org/abs/1702.06176">MOLIERE: Automatic Biomedical Hypothesis Generation System</a> as well as others in order to become introduced to research at large within this particular area.
+<ul>
+<li>Others Include
+<ul>
+<li><a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-492">The structural and content aspects of abstracts versus bodies of full text journal articles are different</a></li>
+<li><a href="https://www.biorxiv.org/content/biorxiv/early/2017/07/11/162099.full.pdf">Text mining of 15 million full-text scientific articles</a></li>
+</ul></li>
+</ul></li>
+<li>Finding of papers in large enough size so that reliable results and valid comparisons can be made.</li>
+<li>Parsing out text from papers and removing things like, equations, tables, image links and references.</li>
+</ol>
+</body>
+</html>

@@ -1,15 +1,16 @@
 # About me
 
-Hello people, this page is coming to you live from a server somewhere on the interweb!
-
-Anyways, my name is Angelo and I am a Senior Computer Science Student at
-Clemson. I do things and some of those things are, well, on this website.
-
 ## Interests
 
-I started out at Clemson University on a pre-med and computer science track; However, saw the impact that was possible by going with a more computer science oriented approach. Since then, I have worked on and helped with a handful of medically based research projects. I plan on going to graduate school and applying/developing my skills in order to contribute to the progression of the medical field.
+I started out at Clemson University on a pre-med and computer science track; However, saw the impact and outreach that was achievable through computer science (as well as the fun projects!). Since then, I have made myself much more oriented towards computer science and mathematics as it seems that the two fields should almost go hand in hand.
 
-I enjoy working with algorithm design, machine learning, and big data.
+Some of the projects that I worked on in the past were medically oriented. The current one being worked on is described in depth [here](#/projects/topic_modeling_and_hypothesis_generation). The other, worked on sophomore year, was a smaller sized project in which I helped with the implementation of dynamic time warping for searching for signals efficiently in a database of EEG records.
+
+Other projects were mostly for exploration into different topics within computing, like a [networking research project](#/projects/pubsub_architecture_analysis) that I helped with. Most of the school projects that I do, I enjoy and do a bit of extra work on them as well. The projects that I included were those that nice visual outputs at the end. Namely: [2D Game Engine Design](#/school_work/2017_Spring_2D_Game_Engine_Design), [Computer Graphics](#/school_work/2017_Spring_Computer_Graphics), and an older [Ray Tracer Project](#/school_work/2015_Spring_102_RayTracer)
+
+I plan on going to graduate school and applying/developing my skills in order to contribute to the progression of the medical field or any other field where the result seems to be overwhelmingly beneficial.
+
+I enjoy working with algorithm design, machine learning, and [big data](#/projects/topic_modeling_and_hypothesis_generation).
 
 [Websites](/OldWebsite) and other computer graphics related applications are fun as well.
 
@@ -22,7 +23,7 @@ I enjoy working with algorithm design, machine learning, and big data.
 
 Year long project with goal of improving existing techniques for hypothesis generation by extracting relevant information from research papers.
 
-I am working with big data (1.7 million Medical Research Articles from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/))
+I am working with big data (about 100gb in textual data or 1.7 million Medical Research Articles from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/))
 
 ### Software engineering intern at [Blackbaud](https://www.blackbaud.com/)
 
@@ -32,9 +33,10 @@ I am working with big data (1.7 million Medical Research Articles from [PubMed C
 
 <center><em>That is me kneeling at the bottom right</em></center>
 
-Blackbaud is a company that creates software tailored for nonprofit organizations. The most used product is Raiser's Edge, which is used by nonprofits when determining how to most efficiently handle their donors.
+Blackbaud is a company that creates software tailored for nonprofit organizations. The most used product is Raiser's Edge, which is used by nonprofits when determining how to most effectively handle their donors.
 
-Worked on a Scrum team within an ASP.net web application called Raisers Edge NXT—which makes up about 30% of their sales—with Angular 2 on the front-end and C# and SQL on the back-end. Updated and added health pages that gave developers the tools to better analyze database health and edit database package status. Reduced the number of health pages by making a more centralized location for health data.
+Worked on a Scrum team within an ASP.net web application called Raisers Edge NXT—which makes up about 30% of their sales.
+I worked with Angular 2 on the front-end and C# and SQL on the back-end. Updated and added health pages that gave developers the tools to better analyze database health and edit database package status. Reduced the number of health pages by making a more centralized location for health data.
 
 Specifically, wrote JavaScript with Angular 2 Components and Services. As well as JavaScript Jasmine unit tests. On the back-end wrote in C# with SpecFlow unit tests and integration tests. Wrote basic SQL as well.
 

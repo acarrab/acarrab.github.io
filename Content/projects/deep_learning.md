@@ -33,9 +33,3 @@ Our group, on the other hand, is taking this opportunity to showcase real-time O
 ## Personal Goals
 
 I am working on learning more of the math in order to be able to create tailored machine learning models in order to tackle real-world problems. However, I do not want to use something so cool and not really know what is going on underneath the hood.
-
-My routines for learning consist of
-
-- Reading through [this textbook](http://www.deeplearningbook.org/)
-- Watching [Siraj](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A)
-- Trying to get into a course on [Udacity](https://www.udacity.com/) for deep learning

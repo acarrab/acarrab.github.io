@@ -1,6 +1,8 @@
 # Research with Human-Centered Cloud Robotics group @ Clemson
-## Simulation of network's effect on real-time environemnt
+
+## Simulation of network's effect on real-time environment
 ![](../Resources/pubSubRep.png)
+
 ### Tools for Analysis
 
 *Tuesday, November 15th, 2016*

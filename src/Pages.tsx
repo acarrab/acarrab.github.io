@@ -5,6 +5,7 @@ import { HashRouter as Router } from "react-router-dom";
 
 import WebView from "./WebView.Component";
 import NavigationBar from "./Navigation";
+import ScrollToTop from "./ScrollToTop";
 
 interface RoutesProps {
     baseUrl: string;
@@ -14,7 +15,7 @@ export default class Pages extends React.Component<RoutesProps> {
     public render() {
         return (
             <Router ref="router" basename={this.props.baseUrl}>
-                <div>
+                <ScrollToTop>
                     <NavigationBar />
                     <WebView />
                     <div id="footerPadding"></div>
@@ -25,7 +26,7 @@ export default class Pages extends React.Component<RoutesProps> {
                             <a href="https://www.linkedin.com/in/acarrab/"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                </div>
+                </ScrollToTop>
             </Router>
         );
     }

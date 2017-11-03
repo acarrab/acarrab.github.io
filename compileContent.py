@@ -9,14 +9,8 @@ def wr(s):
     global fout
     fout.write(s)
 
-def convertToHtml(fileName):
-    return pexpect.run("pandoc {} -f markdown -t html5 -s".format(fileName)).decode()
-
-
-def convertToText(fileName):
-    file = convertToHtml(fileName)
-    x = file.replace("\r\n", "\\n");
-    return x.replace("'", "\\'")
+def compileToHtml(fileName, compileLocation):
+    open(compileLocation,'w').write(pexpect.run("pandoc {} -s -f markdown -t html5".format(fileName)).decode())
 
 def getDirectories(directory = "./Content"):
     return pexpect.run("find {} -mindepth 1 -maxdepth 1 -type d".format(directory)).decode().split()
@@ -31,12 +25,18 @@ def getPages(directory = "./Content"):
 
 class Page:
     def __init__(self, fileName = "./Content/home.md"):
-        self.text = convertToText(fileName)
-        self.name = re.search(r"([^\/]*)\.md", fileName).group(1).replace("_", " ").title()
-        self.route = fileName.replace("//", "/").replace("./Content", "").replace(".md", "") if self.name != " Home" else "/"
-        print(self.route)
-        self.route = re.sub(r"/_*", "/", self.route);
-        self.route = self.route.replace("_|_", "_");
+        # create the name of the web page in the navigation menu
+        self.name = re.search(r"([^\/]*)\.md", fileName).group(1).replace("_", " ").title().strip()
+        # create the route
+        self.route = fileName.replace("//", "/").replace("./Content", "").replace(".md", "") if self.name != "Home" else "/"
+        self.route = re.sub(r"/_*", "/", self.route).replace("_|_", "_")
+        
+        ## create the location
+        self.compiledLocation = "./CompiledContent" + re.sub(r"\/.*\/", "/", self.route) + "_.html"
+        compileToHtml(fileName, self.compiledLocation)
+        # make relative for markdown pages file
+        self.compiledLocation = "." + self.compiledLocation
+       
 
 
 spaces = "    "
@@ -57,8 +57,8 @@ class Directory:
         for page in self.pages:
             wln(spaces + "{")
 
-            wln(spaces * 2 + "name: '{}',".format(page.name.strip()))
-            wln(spaces * 2 + "text: '{}',".format(page.text))
+            wln(spaces * 2 + "name: '{}',".format(page.name))
+            wln(spaces * 2 + "source: '{}',".format(page.compiledLocation))
             wln(spaces * 2 + "route: '{}'".format(page.route))
                 
             wr(sp + spaces + "}")
@@ -105,7 +105,7 @@ import ReactMarkdown from "react-markdown";
 import { Route, Switch } from "react-router-dom";
 
 export class Page {
-    text: string
+    source: string
     name: string
     route: string 
 }
@@ -121,8 +121,29 @@ export var Content: Directory = {
 d = Directory()
 d.printAll()
 
+
+
+
+
 wr("""}
 
+function htmlOf(text) {
+    return (
+        <div dangerouslySetInnerHTML={{ __html: text}}></div>
+    )
+}
+
+var pageData = {
+""")
+
+allPages = d.linearizePages();
+
+pageCount = len(allPages)
+for (i, page) in enumerate(allPages):
+    wr("   '{}': require('../node_modules/raw-loader/index.js!{}'){}".format(page.name, page.compiledLocation, "\n" if i == pageCount - 1 else ",\n"))  
+
+
+wr("""}
 export function CompiledRoutes() {
     return (
         <Switch>
@@ -130,21 +151,12 @@ export function CompiledRoutes() {
 def wln(s):
     wr(spaces*3 + s + "\n")
 
-def lettersSanitized(s):
-    for i in range(len(s)):
-        if s[i] == "'": yield "\\"
-        yield s[i]
-    
-
-i = 0;
-allPages = d.linearizePages();
 
 
-wln("<Route exact path='/' component={() => (<div dangerouslySetInnerHTML={{ __html: '" + allPages[0].text + "'}} />)} />")
+wln("<Route exact path='/' component={() => (htmlOf(pageData['" + allPages[0].name + "']))} />")
 
 for page in allPages[1:]:
-    wln("<Route path='"+page.route+"' component={() => (<div dangerouslySetInnerHTML={{ __html: '" + page.text + "'}} />)} />")
-    i += 1
+    wln("<Route path='"+page.route+"' component={() => (htmlOf(pageData['" + page.name + "']))} />")
 
     
 wr(spaces*2 + "</Switch>\n")

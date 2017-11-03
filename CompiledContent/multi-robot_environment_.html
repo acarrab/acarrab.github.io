@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="research-science-internship-dimacs-reu-at-rutgers-university">Research Science Internship @ DIMACS REU at Rutgers University</h1>
+<p>Feel free to download and look at my <a href="../Resources/finalResearchPaper.pdf">research paper</a>.</p>
+<h2 id="discrete-representation-of-multi-agent-environment">Discrete Representation of multi-agent environment</h2>
+<figure>
+<img src="../Resources/DiscreteSmaller.gif" />
+</figure>
+<center>
+<em>Discrete Multi-Robot Environment Simulation</em>
+</center>
+<h3 id="diagram-explanation">Diagram explanation</h3>
+<p>This is a simulation of a multi-robot environment in which basic path planning is implemented. It is done in a discrete case to allow for easier path planning. The grid size and hexagonal shape is chosen so that a disc with radius <strong>r</strong> will not collide with another disc of radius <strong>r</strong>.</p>
+<p>Pseudo code</p>
+<ol type="1">
+<li>A Starting and Ending point on the graph are randomly chosen for each disc.</li>
+<li>A breadth first search is done from each discs goal node, that is saved on the node data structure</li>
+<li>On each discrete transition, every node tries to move closer to its goal node, while trying not to run into another disc, using info on the nodes</li>
+<li>Random priorities are decided among the discs and the next step is computed.</li>
+<li>Repeat step 4 until all nodes are at their respective goal states.</li>
+</ol>
+<h2 id="work-summary-and-blog">Work Summary And Blog</h2>
+<p>For this project, I was responsible for generating simulations for multi-robot environments. These simulations would be used in order to determine if there are any sharp-transitions in the behavior of multi-robot systems when the constraints of the system changed, specifically the locality and density of robots in the system.</p>
+<p>Overall, I looked at three different scenarios under these constraints: Continuous, Discrete, and Discrete with Collision avoidance. Often times problems that have to do with a continuous amount of possibilities is simplified to a discrete case to stop it from being able to be solved in a reasonable amount of time, so that was why continuous with path planning was not done.</p>
+<p>In the end, it was determined that there were no sharp transitions in the specific environments and scenarios that I explored. Further research can be done to see what types of properties would lead to such transitions, but as of now my simulations and path determination algorithm do not create sharp transitions.</p>
+<figure>
+<img src="../Resources/ContinuousSmaller.gif" />
+</figure>
+<center>
+<em>Continuous Case</em>
+</center>
+<h2 id="final-week-and-a-research-paper">Final week and a Research Paper</h2>
+<p><em>Week 9</em></p>
+<p>This week, I am continuing to write my final research paper based upon the results that were found. I would like to thank DIMACS and NSF for the funding that I received and also for the great Summer of Research that I had; it was an unforgettable experience.</p>
+<h2 id="final-data-collection">Final data collection</h2>
+<p><em>Week 8</em></p>
+<p>This week, I am collecting more data. Also, working on writing the final research paper and the summary of my experience in the program.</p>
+<h2 id="lack-of-a-sharp-transition">Lack of a sharp transition</h2>
+<p><em>Week 7</em></p>
+<p>This week, I worked more with locality and discovered moreso how it affects the number of collisions overall. There were no unexpected results however and there was also no perceiveable sharp transition. So far it seems like I would have to increase the sophistication for the collision avoidance to get a sharp transition.</p>
+<h2 id="locality-and-disc-radius">Locality and disc radius</h2>
+<p><em>Week 6</em></p>
+<p>This week, I worked more on data collection and exploring the solution. I implemented the locality based on edge distance generation for starting and ending nodes for the discs. I also collected data based on the locality and total discs in the environment as without the locality the results were predictable and there was no sharp transition.</p>
+<h2 id="more-data-and-more-deterministic">More Data and more deterministic</h2>
+<p><em>Week 5</em></p>
+<p>I gathered basic data on the collision behavior, but the more random method of determining solutions to the problem caused a few problems with the speed of solving and thus the speed of collecting data. I worked this week on making the process deterministic. I also collected some more data.</p>
+<h2 id="trying-out-the-gpu">Trying out the GPU</h2>
+<p><em>Week 4</em></p>
+<p>This week, I generated graphs based on how the locality of travel and density of the discs area in a unit square affect the number of collisions. Using plot.ly along with python, I was able to run simulations on the number of pairwise collisions. In the system there appeared to be no sharp transitions.</p>
+<h2 id="i-now-have-graphs">I now have graphs</h2>
+<p><em>Week 3</em></p>
+<p>This week, I generated graphs based on how the locality of travel and density of the discs area in a unit square affect the number of collisions. Using plot.ly along with python, I was able to run simulations on the number of pairwise collisions. In the system there appeared to be no sharp transitions.</p>
+<h2 id="onwards">Onwards!</h2>
+<p><em>Week 2</em></p>
+<p>This week, I ran simulations to determine how the properties of the system affected the interaction between the discs. The results of this step are so far inconclusive since no sharp transition was found yet. I set up python and pygame within visual studios and then started to work in/learn python to create a grid for the discs to be on. This will be useful later for creating models with pygame.</p>
+<h2 id="start-of-the-program">Start of the Program</h2>
+<p><em>Week 1</em></p>
+<p>This week I worked on putting together a presentation as well as making some headway into gathering data on how the number of discs, the radius, and maximum distance from starting point to ending point affect the number of pairwise collisions that occur. I layed out a plan for what I am going to be researching as well as getting my workspace organized and set up for working. I met with my mentor, Jingjin Yu, and we layed out more-so what I will be starting with.</p>
+</body>
+</html>

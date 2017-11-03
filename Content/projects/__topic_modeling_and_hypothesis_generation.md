@@ -103,14 +103,14 @@ At the end of this process, it has been determined that there are now only 1.3 m
 Here is the breakdown of documents (that are currently stored in separate files according to the number of processes):
 
 ```bash
-[acarrab@login001 lemmatizedText]$ wc -l Abstracts_* | grep total
+[acarrab]$ wc -l Abstracts_* | grep total
    1328035 total
 ```
 
 Here is the breakdown of how the documents were lost.
 
 ```bash
-[acarrab@login001 acarrab]$ wc -l *.log
+[acarrab]$ wc -l *.log
   151427 failedDuringParsingOrNoAbstract.log
    53872 hasAbstractAndFailed.log
   164944 tooNewButHadAbstract.log
@@ -150,6 +150,47 @@ Also inserted failure cases for parse if things like the abstracts were missing.
 Ran parsing parallelized on palmetto cluster and looked determined results so far. More validation should be done in order to make sure that most of the data are being used.
 
 Files are saved in only abstract format and also full-text and abstract format in order to create distinct sets of documents that can give good comparison.
+
+#### Regular expression cleaning of text
+
+Text cleaning for later stages and applied to all text that is seen later in the pipeline
+
+```python
+#defined in a class
+def stringClean(self, s=""):
+    # removals that can bring together two terms and turn them into an ngram almost
+    for removal in ["/", "\\", "'", "," "^"]:
+        s = s.replace(removal, "")
+
+    # more delimeters that are usually separating
+    for delimiter in [";"]:
+        s = s.replace(delimiter, " ")
+
+    # conversions of items into ngrams/words 
+    for replacement in [("-", "_"), ("%", " percent "), ("@", " at "), ("!", ".")]:
+        s = s.replace(replacement[0], replacement[1])
+
+    # fix repeated periods
+    s = re.sub(r"\.+", ".", s)
+
+    # concatenate things together that are either digits
+    # i.e 5.61094 to 5_61094 and P.M.C. to P_M_C.
+    x = re.sub(r"(\S)\.(\S)", r"\1_\2", s)
+
+    # remove reference tags
+    s = re.sub(r"\[[0-9]+\]", "", s)
+
+    # should run only twice at most, i.e. once above and once in while loop
+    while s != x:
+        s = x
+        x = re.sub(r"(\S)\.(\S)", r"\1_\2", s)
+
+    # reduce multiple spaces and non-text characters
+    s = re.sub(r"\s+", " ", re.sub(r"[^0-9a-z\.\-_\s]", " ", s))
+    # remove spaces that are in between text and period
+    s = re.sub(r"(\S)\s+\.\s", r"\1\. ", s)
+    return s
+```
 
 ### Heirarchical parsing of xml documents
 
