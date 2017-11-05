@@ -1,4 +1,4 @@
-<h1>Angelo Carrabba<br /><small style="color: #FF6500; font-weight: 200">Clemson Computer Science Senior</small></h1>
+<h1>Angelo Carrabba<br /><small style="color: #FF7000; font-weight: 200">Clemson Senior in Computer Science and Mathematics</small></h1>
 
 ## Here are some places
 
@@ -18,5 +18,6 @@
     - [more info](#/projects/deep_learning)
 
 ### Past Work
+
 - [Multi-agent Environment Research (REU)](#/projects/multi-robot_environment)
 - [PubSub Architecture Analysis](#/projects/pubsub_architecture_analysis)

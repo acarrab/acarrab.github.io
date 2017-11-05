@@ -9,17 +9,36 @@ We are seeing if it helps to extract additional information from the full-texts 
 *Last updated: Tuesday, October 30th 2017*
 
 All code is parallelized and ran on the [Clemson Palmetto Cluster](https://www.palmetto.clemson.edu/palmetto/userguide_palmetto_overview.html) in order to complete tasks in reasonable amount of time.
-Using [mpi4py](http://mpi4py.readthedocs.io/en/stable/) in order to run text extraction on the million documents in parallel on the Clemson Palmetto Cluster
+Using [mpi4py](http://mpi4py.readthedocs.io/en/stable/) in order to run text extraction on the million documents in parallel on the Clemson Palmetto Cluster.
 
-Started by downloading 1.7 million documents over ftp from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/)
+Started by downloading 1.7 million documents over ftp from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/).
 
-1. Wrote code to parse xml documents tree structure with hierarchical selection by walking through xml tree and grabbing what I need (example under **hierarchical selection example** section)
+1. Wrote code to parse xml documents tree structure with hierarchical selection by walking through xml tree.
     - Down to 1.4 million documents because: some did not have abstracts, were not research papers, or were not in proper xml format.
 1. Wrote and ran code to clean text of unicode expressions and in text equations using regular expressions.
 1. Used [NLTK](http://www.nltk.org/) in order to lemmatize text in order to be passed into the next part of the pipeline, the creation of the n_grams.
-1. Ran Abstracts through n-gram stage of Moliere Pipeline
+1. Ran Abstracts through n-gram stage of Moliere Pipeline.
 
 ## Weekly Log
+
+
+### Running ToPMine on a lot of data
+
+There were some problems with this phase. Particularly that the number of tokens at this point of the long running job has encountered overflow. Here is the printout so far.
+
+    /scratch3/acarrab/Desktop/Pipeline/ToPMine/rawFiles/qbf_allFulltexts.txt
+    input
+    3
+    1
+    ___
+    First pass: finding rare words...
+    Second pass: do preprocessing...
+
+    ---------------------------
+    The number of documents: 1328035
+    The size of the vocabulary: 3610383
+    Total tokens: -1288583746
+    Minsup = 3
 
 ### N-gram creation using [ToPMine](https://arxiv.org/pdf/1406.6312.pdf)
 
