@@ -1,6 +1,6 @@
 # About me
 
-Computer Science Major, Mathematical Sciences Minor
+Resume is [here](../Resume/Resume.pdf)
 
 ## Interests
 
