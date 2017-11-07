@@ -24,6 +24,11 @@ export var Content: Directory = {
             route: '/'
         },
         {
+            name: 'Cv',
+            source: '../CompiledContent/cv_.html',
+            route: '/cv'
+        },
+        {
             name: 'About',
             source: '../CompiledContent/about_.html',
             route: '/about'
@@ -100,6 +105,7 @@ function htmlOf(text) {
 
 var pageData = {
    'Home': require('../node_modules/raw-loader/index.js!../CompiledContent/_.html'),
+   'Cv': require('../node_modules/raw-loader/index.js!../CompiledContent/cv_.html'),
    'About': require('../node_modules/raw-loader/index.js!../CompiledContent/about_.html'),
    'Topic Modeling And Hypothesis Generation': require('../node_modules/raw-loader/index.js!../CompiledContent/topic_modeling_and_hypothesis_generation_.html'),
    'Multi-Robot Environment': require('../node_modules/raw-loader/index.js!../CompiledContent/multi-robot_environment_.html'),
@@ -115,6 +121,7 @@ export function CompiledRoutes() {
     return (
         <Switch>
             <Route exact path='/' component={() => (htmlOf(pageData['Home']))} />
+            <Route path='/cv' component={() => (htmlOf(pageData['Cv']))} />
             <Route path='/about' component={() => (htmlOf(pageData['About']))} />
             <Route path='/projects/topic_modeling_and_hypothesis_generation' component={() => (htmlOf(pageData['Topic Modeling And Hypothesis Generation']))} />
             <Route path='/projects/multi-robot_environment' component={() => (htmlOf(pageData['Multi-Robot Environment']))} />

@@ -1,7 +1,9 @@
 # Research Science Internship @ DIMACS REU at Rutgers University
 
-Feel free to download and look at my [research paper](../Resources/finalResearchPaper.pdf).
-
+1. Wrote a [research paper](../Resources/finalResearchPaper.pdf) on results.
+1. Created a simulation in python, with graphics created with pygame.
+1. Analyze traffic in a multi-robot environment with multi-agent simulations.
+1. Specifically looking for sharp-transition in behavior in discretized traffic network when compared to continuous one.
 
 ## Discrete Representation of multi-agent environment
 
