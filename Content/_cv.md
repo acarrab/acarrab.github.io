@@ -2,6 +2,7 @@
 
 ## Projects
 
+
 ### Data Mining Research and Project @ Clemson University
 
 *Fall 2017 — Spring 2018 (present)*
@@ -11,14 +12,6 @@
 - Worked with large data input (over 1 million documents; over 30gb of textual data).
 
 [MORE INFO](#/projects/topic_modeling_and_hypothesis_generation)
-
-### Software Engineering Intern @ Blackbaud
-
-*Summer 2017*
-
-- Created database monitoring software with web technologies (angular based) on ASP.NET framework (with SQL and C#).
-- Wrote software for editing and manipulating data within database.
-- Created algorithms and data structures for connecting data flow between different database pods.
 
 ### Research Assistant within Human-Centered Cloud Robotics @ Clemson University
 
@@ -58,6 +51,49 @@
 - Worked on software for calibrating camera image distortion through analysis of an image of a checkered board.
 - Created edge detection processing.
 - Usage motivated by ability to quickly calibrate software used within fish lense recording or projection devices.
+
+
+## Work Experience
+
+### Software Engineering Intern @ Blackbaud
+
+*Summer 2017*
+
+- Created database monitoring software with web technologies (angular based) on ASP.NET framework (with SQL and C#).
+- Wrote software for editing and manipulating data within database.
+- Created algorithms and data structures for connecting data flow between different database pods.
+
+### Lab Teaching Assistant @ Clemson University
+
+*Spring 2017*
+
+- Co-taught Algorithms and Data Structures lab
+- Graded lab assignments
+
+### Lab Teaching Assistant @ Clemson University
+
+*Fall 2016*
+
+- Co-taught Algorithms and Data Structures lab as well as CPSC 1020 lab (2nd semester intro class)
+- Graded class assignments for Algorithms and Data Structures as well as lab assignments
+
+## Team Experience
+
+### Participated in HackGT (Hackathon)
+
+- Applied LDA Topic Modeling to recipe database, where the set of documents and word counts were recipes and ingredient counts respectively.
+- Created web-app to walk through graph generated from nearest neighbors in recipe embedding space.
+
+### Participated in Off The Grid (Company sponsored hackathon)
+
+- Created form sign up tracking in order to generate connection graph to monitor spread of form sign up through a network.
+
+### Programming Team
+
+- Placed 6th out of 37 at Mercer Programming Contest (Spring 2017)
+- Placed 14th out of 45 in South East Regional Programming Competition (Fall 2016)
+- Placed 86th out of 200 in NAIPC Invitational Programming Competition (Spring 2016)
+- Placed 7th out of 40 at first programming contest at Mercer University (Spring 2016)
 
 ## Relevant Courses
 

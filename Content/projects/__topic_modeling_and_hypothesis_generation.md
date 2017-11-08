@@ -6,7 +6,7 @@ We are seeing if it helps to extract additional information from the full-texts 
 
 ## Progress
 
-*Last updated: Tuesday, October 30th 2017*
+*Last updated: Tuesday, November 7th 2017*
 
 All code is parallelized and ran on the [Clemson Palmetto Cluster](https://www.palmetto.clemson.edu/palmetto/userguide_palmetto_overview.html) in order to complete tasks in reasonable amount of time.
 Using [mpi4py](http://mpi4py.readthedocs.io/en/stable/) in order to run text extraction on the million documents in parallel on the Clemson Palmetto Cluster.
@@ -18,11 +18,25 @@ Started by downloading 1.7 million documents over ftp from [PubMed Central](http
 1. Wrote and ran code to clean text of unicode expressions and in text equations using regular expressions.
 1. Used [NLTK](http://www.nltk.org/) in order to lemmatize text in order to be passed into the next part of the pipeline, the creation of the n_grams.
 1. Ran Abstracts through n-gram stage of Moliere Pipeline.
+1. Ran subsets of full-texts through n-gram stage of Moliere Pipeline.
 
 ## Weekly Log
 
+### Basic statistics on full-text subset vs abstracts subset
+
+*Tuesday, November 7th*
+
+<center><h4><b>Abstract subset</b> ngrams size (number of words in ngram) to counts</h4></center>
+
+![](../Resources/topicModeling/abstractSubsetNgramSizeToCounts.png)
+
+<center><h4><b>Fulltext subset</b> ngrams size (number of words in ngram) to counts</h4></center>
+
+![](../Resources/topicModeling/fulltextSubsetsNgramSizeToCounts.png)
 
 ### Running ToPMine on a lot of data
+
+*Tuesday, November 7th*
 
 There were some problems with this phase. Particularly that the number of tokens at this point of the long running job has encountered overflow. Here is the printout so far.
 
@@ -39,6 +53,21 @@ There were some problems with this phase. Particularly that the number of tokens
     The size of the vocabulary: 3610383
     Total tokens: -1288583746
     Minsup = 3
+
+There have been some issues encountered when running the current processes through ToPMine. These are encountered because of: memory usage issues (because of insufficient memory size for the parameterization of the jvm), integer overflow, and overall time to debug is very slow. A lot of the issues were encountered after almost 3 days of running and so were not noticed until that point. 
+
+Solutions
+1. memory usage issues
+    - Changed node use of 500gb node to 2000gb node.
+    - Changed jvm memory parameterization to 1500gb.
+1. integer overflow
+    - Currently considering finding non-byte code compiled java and changing source code.
+    - The tokens are character counts in their context since they later correctly count the number of words so it may not have an effect.
+        - 36 million is not enough for integer overflow and the number is 10^10 ≈ 2^30 so it is not smaller than an integer
+        - Character counts are not used in ngram creation
+    - Removed PMIDs from the file (these are never useful to stem)
+1. time to debug
+    - using qpeek to check on job and making sure that memory is sufficient to remove chance of page-thrashing so processing rate is going quicker.
 
 ### N-gram creation using [ToPMine](https://arxiv.org/pdf/1406.6312.pdf)
 
