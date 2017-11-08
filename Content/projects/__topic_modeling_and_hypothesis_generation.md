@@ -61,6 +61,7 @@ There were some problems with this phase. Particularly that the number of tokens
 There have been some issues encountered when running the current processes through ToPMine. These are encountered because of: memory usage issues (because of insufficient memory size for the parameterization of the jvm), integer overflow, and overall time to debug is very slow. A lot of the issues were encountered after almost 3 days of running and so were not noticed until that point. 
 
 Solutions
+
 1. memory usage issues
     - Changed node use of 500gb node to 2000gb node.
     - Changed jvm memory parameterization to 1500gb.

@@ -107,7 +107,28 @@ The size of the vocabulary: 3610383
 Total tokens: -1288583746
 Minsup = 3</code></pre>
 <p>There have been some issues encountered when running the current processes through ToPMine. These are encountered because of: memory usage issues (because of insufficient memory size for the parameterization of the jvm), integer overflow, and overall time to debug is very slow. A lot of the issues were encountered after almost 3 days of running and so were not noticed until that point.</p>
-<p>Solutions 1. memory usage issues - Changed node use of 500gb node to 2000gb node. - Changed jvm memory parameterization to 1500gb. 1. integer overflow - Currently considering finding non-byte code compiled java and changing source code. - The tokens are character counts in their context since they later correctly count the number of words so it may not have an effect. - 36 million is not enough for integer overflow and the number is 10^10 ≈ 2^30 so it is not smaller than an integer - Character counts are not used in ngram creation - Removed PMIDs from the file (these are never useful to stem) 1. time to debug - using qpeek to check on job and making sure that memory is sufficient to remove chance of page-thrashing so processing rate is going quicker.</p>
+<p>Solutions</p>
+<ol type="1">
+<li>memory usage issues
+<ul>
+<li>Changed node use of 500gb node to 2000gb node.</li>
+<li>Changed jvm memory parameterization to 1500gb.</li>
+</ul></li>
+<li>integer overflow
+<ul>
+<li>Currently considering finding non-byte code compiled java and changing source code.</li>
+<li>The tokens are character counts in their context since they later correctly count the number of words so it may not have an effect.
+<ul>
+<li>36 million is not enough for integer overflow and the number is 10^10 ≈ 2^30 so it is not smaller than an integer</li>
+<li>Character counts are not used in ngram creation</li>
+</ul></li>
+<li>Removed PMIDs from the file (these are never useful to stem)</li>
+</ul></li>
+<li>time to debug
+<ul>
+<li>using qpeek to check on job and making sure that memory is sufficient to remove chance of page-thrashing so processing rate is going quicker.</li>
+</ul></li>
+</ol>
 </div>
 <h3>
 N-gram creation using <a href="https://arxiv.org/pdf/1406.6312.pdf">ToPMine</a> <small><br><em>Monday, October 30th</em></small>
