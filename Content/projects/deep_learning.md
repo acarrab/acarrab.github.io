@@ -1,5 +1,9 @@
 # Deep learning Projects
 
+*Last updated: Wednesday, November 8th 2017*
+
+
+
 Right now, I am working on a handful of projects that pertain to deep learning as well as making my way through
 [this book](http://www.deeplearningbook.org/). This started from long-running interest in machine learning.
 After taking some of the math classes that pertain to deep learning (Linear Algebra, Discrete Mathematics, Theory of Probability, Differential Equations, and Multi-variable Calculus), I want to learn deep learning in *depth*.
@@ -33,3 +37,52 @@ Our group, on the other hand, is taking this opportunity to showcase real-time O
 ## Personal Goals
 
 I am working on learning more of the math in order to be able to create tailored machine learning models in order to tackle real-world problems. However, I do not want to use something so cool and not really know what is going on underneath the hood.
+
+## Deep Dream Results from code
+
+The example code used is from the [tensorflow deep dream example](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/tutorials/deepdream).
+
+### Transitions
+
+Creating click to apply deep dream application. The result will give users the ability to apply transitions by clicking which type of objects they would like to look for in the image. Like, what the model was trained on. Right now, I am using inception—which was trained on imagenet and therefore saw a lot of dogs—to apply deep dream to images in order to show what types of features result in activated responses within the network. This results in dogified images. Then, adding an objective we are able to use the same network in order to apply flowery base to the image.
+
+When combinations come into play, we are able to create images that are combinations of different styles, which allows for students to have a degree of artistic freedom.
+<div class="accordion">
+
+#### Clemson Statium as seed 
+
+<div>
+
+![](../Resources/DeepLearning/ticket_page_FB.jpg)
+
+</div>
+
+##### Flowerfied 
+
+![](../Resources/DeepLearning/flowerfied.jpeg)
+
+##### Flowerfied and Dogified
+
+![](../Resources/DeepLearning/flowerfiedanddogified.jpeg)
+
+#### McAdams (Clemson School of Computing Building)
+
+![](../Resources/DeepLearning/mcadams.jpg)
+
+##### Dogified
+
+![](../Resources/DeepLearning/mcadamsdogified.jpeg)
+
+##### Dogified again
+
+![](../Resources/DeepLearning/mcadamsdogified2.jpeg)
+
+##### and Dogified again
+
+![](../Resources/DeepLearning/mcadamsdogified3.jpeg)
+
+##### Flowerfied 
+
+![](../Resources/DeepLearning/mcadamsdogified3flowerfied.jpeg)
+
+</div>

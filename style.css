@@ -104,7 +104,7 @@ h1 {
 
 h2 {
     font-weight: 200;
-    font-size: 2em;
+    font-size: 2em !important;
     margin-top: 1.5em;
     
     padding-bottom: .2em;
@@ -114,7 +114,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.2em !important;
     font-weight: 400;
     margin-top: 1.4em;
 
@@ -125,12 +125,12 @@ h3 {
 }
 
 h4 {
-    font-size: 1.2em;
+    font-size: 1.1em !important;
     font-weight: 500;
 }
 
 p {
-    font-size: 1em;
+    font-size: 1em !important;
 }
 
 h1 { margin-left: .0em; }
@@ -150,7 +150,14 @@ p  { margin-left: .6em; }
         vertical-align: top;
     }
 
-    .navbar .navbar-collapse {
+    .navbar .navbar-collapse { 
         text-align: center;
     }
+}
+
+
+
+.ui-accordion-header {
+    background-color: white !important;
+    background: white !important;
 }

@@ -22,9 +22,11 @@ Started by downloading 1.7 million documents over ftp from [PubMed Central](http
 
 ## Weekly Log
 
-### Basic statistics on full-text subset vs abstracts subset
+<div class="accordion">
 
-*Tuesday, November 7th*
+<h3>ngram stats (full-text subset vs abstracts subset)<br><small style="text-align:right">*Tuesday, November 7th*</small></h3>
+
+<div>
 
 <center><h4><b>Abstract subset</b> ngrams size (number of words in ngram) to counts</h4></center>
 
@@ -34,9 +36,11 @@ Started by downloading 1.7 million documents over ftp from [PubMed Central](http
 
 ![](../Resources/topicModeling/fulltextSubsetsNgramSizeToCounts.png)
 
-### Running ToPMine on a lot of data
+</div>
 
-*Tuesday, November 7th*
+<h3>Running ToPMine on a lot of data<br><small>*Tuesday, November 7th*</small></h3>
+
+<div>
 
 There were some problems with this phase. Particularly that the number of tokens at this point of the long running job has encountered overflow. Here is the printout so far.
 
@@ -69,9 +73,11 @@ Solutions
 1. time to debug
     - using qpeek to check on job and making sure that memory is sufficient to remove chance of page-thrashing so processing rate is going quicker.
 
-### N-gram creation using [ToPMine](https://arxiv.org/pdf/1406.6312.pdf)
+</div>
 
-*Monday, October 30th*
+<h3>N-gram creation using [ToPMine](https://arxiv.org/pdf/1406.6312.pdf) <small><br>*Monday, October 30th*</small></h3>
+
+<div>
 
 Learned how create n-grams through ToPMine with help of Justin, then ran the process on Abstracts document subset.
 
@@ -140,9 +146,11 @@ with open("fullTexts_subset.txt", "w") as fout:
             n -= 1
 ```
 
-### Removal of files that are too new from the dataset
+</div>
 
-*Tuesday, October 24th*
+<h3>Removal of files that are too new from the dataset<br><small>*Tuesday, October 24th*</small></h3>
+
+<div>
 
 Went back through pipeline that has been created so far and added a small amount of code to determine if the publish date of the article was this year as we will be removing those from the data set in order to see if prediction is valid for this year. No need for predicting things we really don't know yet, because there is no basis for comparison.
 
@@ -173,9 +181,11 @@ In order to get some results, used the NLTK's lemmatizer in order lemmatize the 
 
 After speaking with Justin, he has seen that the benefits of using the Specialist NLP Tools is actually too slow for our data-set size in the end anyways and NLTK lemmatization does a good job and gives promising and significant results within the research that he has done.
 
-### Increasing valid parsing rate
+</div>
 
-*Monday, October 16th*
+<h3>Increasing valid parsing rate<br><small>*Monday, October 16th*</small></h3>
+
+<div>
 
 After running the jobs in order to parse the documents, added basic statistics capturing that are added to files while running batch job on the almost 1.8 million documents. At the end of the run, there are counts for different types of errors
 
@@ -187,9 +197,11 @@ After running the jobs in order to parse the documents, added basic statistics c
 
 Given this information, I can now look at the files that failed yet had the abstract keyword and determine how to reduce the number of files that are failed to be parsed.
 
-### Quality analysis of xml parsing
+</div>
 
-*Wednesday, October 11th*
+<h3>Quality analysis of xml parsing<br><small>*Wednesday, October 11th*</small></h3>
+
+<div>
 
 Went through a random subset of the documents and looked at results from parsing in order to determine whether the parsing was doing what it should be doing. After making some modifications to the code written in the previous week, there is a good likelihood of valid parsing.
 
@@ -240,9 +252,11 @@ def stringClean(self, s=""):
     return s
 ```
 
-### Heirarchical parsing of xml documents
+</div>
 
-*Wednesday, October 4th*
+<h3>Heirarchical parsing of xml documents<br><small>*Wednesday, October 4th*</small></h3>
+
+<div>
 
 Wrote code to parse out unicode characters as well as select out abstracts and other relevant text sections from the millions of documents.
 
@@ -276,32 +290,41 @@ chains = [
         },
 ```
 
-### Downloading Documents
+</div>
 
-*Thursday, September 28th*
+<h3>Downloading Documents<br><small>*Thursday, September 28th*</small></h3>
+
+<div>
 
 Downloaded the documents over ftp from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/) and moved them onto the Palmetto Cluster.
 
 Became familiar with some of [NLTK](http://www.nltk.org/) and processes like lemmatization and stemming. We will be using lemmatization for our work.
 
-### Data Selection Decision
+</div>
 
-*Wednesday, September 20th*
+<h3>Data Selection Decision<br><small>*Wednesday, September 20th*</small></h3>
+
+<div>
 
 After looking through different sources of data this week and talking with my research mentor, it has been decided that using [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/) as the sole data source should give enough documents to have good results. Furthermore, the data source contains parsed documents in XML format which allows for minimal use of additional parsing techniques from PDF format.
 
-### Read through papers
+</div>
 
-*Wednesday, September 13th*
+<h3>Read through papers<br><small>*Wednesday, September 13th*</small></h3>
+
+<div>
 
 After being introduced to subjects by reading research papers, I have a decent understanding of the process that is taken to get from the step of text extraction and input to hypothesis generation (with lack of understanding of some specifics). I will be speaking with Justin some time this week in order to work out some questions I have about the process, but overall seems like a very cool process.
 
 I am now starting to look through different sources of data. The main and quickest source to find is [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/), but—given that this should have on the order of a couple of million of articles—this could be enough if no other viable source of data is found.
 
 I have also been looking into different programs for parsing text from PDF format.
-### Beginning of Research
 
-*Wednesday, September 6th*
+</div>
+
+<h3>Beginning of Research<br><small>*Wednesday, September 6th*</small></h3>
+
+<div>
 
 Met with Dr. Safro and Dr. Herzog, and Justin Sybrandt from the ACS Lab. Introduced to and talked with Justin about his research and where my additional work will fit in. 
 
@@ -314,3 +337,7 @@ What I will be doing is working on reapplying Topic Modeling and Hypothesis Gene
 
 1. Finding of papers in large enough size so that reliable results and valid comparisons can be made. 
 1. Parsing out text from papers and removing things like, equations, tables, image links and references.
+
+</div>
+
+</div>

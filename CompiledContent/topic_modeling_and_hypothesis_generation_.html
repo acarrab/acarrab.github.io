@@ -66,8 +66,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Ran subsets of full-texts through n-gram stage of Moliere Pipeline.</li>
 </ol>
 <h2 id="weekly-log">Weekly Log</h2>
-<h3 id="basic-statistics-on-full-text-subset-vs-abstracts-subset">Basic statistics on full-text subset vs abstracts subset</h3>
-<p><em>Tuesday, November 7th</em></p>
+<div class="accordion">
+<h3>
+ngram stats (full-text subset vs abstracts subset)<br><small style="text-align:right"><em>Tuesday, November 7th</em></small>
+</h3>
+<div>
 <center>
 <h4>
 <b>Abstract subset</b> ngrams size (number of words in ngram) to counts
@@ -84,8 +87,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <figure>
 <img src="../Resources/topicModeling/fulltextSubsetsNgramSizeToCounts.png" />
 </figure>
-<h3 id="running-topmine-on-a-lot-of-data">Running ToPMine on a lot of data</h3>
-<p><em>Tuesday, November 7th</em></p>
+</div>
+<h3>
+Running ToPMine on a lot of data<br><small><em>Tuesday, November 7th</em></small>
+</h3>
+<div>
 <p>There were some problems with this phase. Particularly that the number of tokens at this point of the long running job has encountered overflow. Here is the printout so far.</p>
 <pre><code>/scratch3/acarrab/Desktop/Pipeline/ToPMine/rawFiles/qbf_allFulltexts.txt
 input
@@ -102,8 +108,11 @@ Total tokens: -1288583746
 Minsup = 3</code></pre>
 <p>There have been some issues encountered when running the current processes through ToPMine. These are encountered because of: memory usage issues (because of insufficient memory size for the parameterization of the jvm), integer overflow, and overall time to debug is very slow. A lot of the issues were encountered after almost 3 days of running and so were not noticed until that point.</p>
 <p>Solutions 1. memory usage issues - Changed node use of 500gb node to 2000gb node. - Changed jvm memory parameterization to 1500gb. 1. integer overflow - Currently considering finding non-byte code compiled java and changing source code. - The tokens are character counts in their context since they later correctly count the number of words so it may not have an effect. - 36 million is not enough for integer overflow and the number is 10^10 ≈ 2^30 so it is not smaller than an integer - Character counts are not used in ngram creation - Removed PMIDs from the file (these are never useful to stem) 1. time to debug - using qpeek to check on job and making sure that memory is sufficient to remove chance of page-thrashing so processing rate is going quicker.</p>
-<h3 id="n-gram-creation-using-topmine">N-gram creation using <a href="https://arxiv.org/pdf/1406.6312.pdf">ToPMine</a></h3>
-<p><em>Monday, October 30th</em></p>
+</div>
+<h3>
+N-gram creation using <a href="https://arxiv.org/pdf/1406.6312.pdf">ToPMine</a> <small><br><em>Monday, October 30th</em></small>
+</h3>
+<div>
 <p>Learned how create n-grams through ToPMine with help of Justin, then ran the process on Abstracts document subset.</p>
 <p>Currently only on Abstract documents and analyzed the validity of the results through randomly looking at generated topics by looking through topics and seeing if topics made sense. All of them, to me, seem to be valid pairings of things that occur in the same statement so I will be moving ahead with running n-gram creation on a subset of the full-texts now.</p>
 <p>Here are some of the topics that were found.</p>
@@ -151,8 +160,11 @@ k <span class="op">=</span> <span class="dv">100000</span>
                 <span class="cf">if</span> k <span class="op">%</span> <span class="dv">10000</span> <span class="op">==</span> <span class="dv">0</span>: <span class="bu">print</span>(<span class="st">&quot;written: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(<span class="dv">100000</span> <span class="op">-</span> k))
                 <span class="cf">if</span> k <span class="op">==</span> <span class="dv">0</span>: <span class="cf">break</span>
             n <span class="op">-=</span> <span class="dv">1</span></code></pre></div>
-<h3 id="removal-of-files-that-are-too-new-from-the-dataset">Removal of files that are too new from the dataset</h3>
-<p><em>Tuesday, October 24th</em></p>
+</div>
+<h3>
+Removal of files that are too new from the dataset<br><small><em>Tuesday, October 24th</em></small>
+</h3>
+<div>
 <p>Went back through pipeline that has been created so far and added a small amount of code to determine if the publish date of the article was this year as we will be removing those from the data set in order to see if prediction is valid for this year. No need for predicting things we really don't know yet, because there is no basis for comparison.</p>
 <p>At the end of this process, it has been determined that there are now only 1.3 million articles left in totality. There are a suspicious amount of articles that are lost to being too new and I will be looking at that later, but for now am just working on lemmatizing the text using different methods.</p>
 <p>Here is the breakdown of documents (that are currently stored in separate files according to the number of processes):</p>
@@ -168,8 +180,11 @@ k <span class="op">=</span> <span class="dv">100000</span>
 <p>I have looked at lemmatization through the means of using specialist NLP tool in order to use those to lemmatize the text, but to no avail. (A lot more learning than initially thought was needed is needed in order to use their tools).</p>
 <p>In order to get some results, used the NLTK's lemmatizer in order lemmatize the text from the research papers. The papers are now ready for the next phase, the building of the n-grams.</p>
 <p>After speaking with Justin, he has seen that the benefits of using the Specialist NLP Tools is actually too slow for our data-set size in the end anyways and NLTK lemmatization does a good job and gives promising and significant results within the research that he has done.</p>
-<h3 id="increasing-valid-parsing-rate">Increasing valid parsing rate</h3>
-<p><em>Monday, October 16th</em></p>
+</div>
+<h3>
+Increasing valid parsing rate<br><small><em>Monday, October 16th</em></small>
+</h3>
+<div>
 <p>After running the jobs in order to parse the documents, added basic statistics capturing that are added to files while running batch job on the almost 1.8 million documents. At the end of the run, there are counts for different types of errors</p>
 <ul>
 <li><p>Failure to parse xml errors</p></li>
@@ -177,8 +192,11 @@ k <span class="op">=</span> <span class="dv">100000</span>
 <li><p>Failed for other reasons</p></li>
 </ul>
 <p>Given this information, I can now look at the files that failed yet had the abstract keyword and determine how to reduce the number of files that are failed to be parsed.</p>
-<h3 id="quality-analysis-of-xml-parsing">Quality analysis of xml parsing</h3>
-<p><em>Wednesday, October 11th</em></p>
+</div>
+<h3>
+Quality analysis of xml parsing<br><small><em>Wednesday, October 11th</em></small>
+</h3>
+<div>
 <p>Went through a random subset of the documents and looked at results from parsing in order to determine whether the parsing was doing what it should be doing. After making some modifications to the code written in the previous week, there is a good likelihood of valid parsing.</p>
 <p>Also inserted failure cases for parse if things like the abstracts were missing.</p>
 <p>Ran parsing parallelized on palmetto cluster and looked determined results so far. More validation should be done in order to make sure that most of the data are being used.</p>
@@ -219,8 +237,11 @@ k <span class="op">=</span> <span class="dv">100000</span>
     <span class="co"># remove spaces that are in between text and period</span>
     s <span class="op">=</span> re.sub(<span class="vs">r&quot;(\S)\s+\.\s&quot;</span>, <span class="vs">r&quot;\1\. &quot;</span>, s)
     <span class="cf">return</span> s</code></pre></div>
-<h3 id="heirarchical-parsing-of-xml-documents">Heirarchical parsing of xml documents</h3>
-<p><em>Wednesday, October 4th</em></p>
+</div>
+<h3>
+Heirarchical parsing of xml documents<br><small><em>Wednesday, October 4th</em></small>
+</h3>
+<div>
 <p>Wrote code to parse out unicode characters as well as select out abstracts and other relevant text sections from the millions of documents.</p>
 <p>Created method for parsing out xml documents tags that are needed in with hierarchical selection.</p>
 <h4 id="example-and-explanation">Example and Explanation</h4>
@@ -245,19 +266,32 @@ k <span class="op">=</span> <span class="dv">100000</span>
                 <span class="st">&quot;GETALL&quot;</span>: <span class="st">&quot;Contributors&quot;</span>
             }
         },</code></pre></div>
-<h3 id="downloading-documents">Downloading Documents</h3>
-<p><em>Thursday, September 28th</em></p>
+</div>
+<h3>
+Downloading Documents<br><small><em>Thursday, September 28th</em></small>
+</h3>
+<div>
 <p>Downloaded the documents over ftp from <a href="https://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a> and moved them onto the Palmetto Cluster.</p>
 <p>Became familiar with some of <a href="http://www.nltk.org/">NLTK</a> and processes like lemmatization and stemming. We will be using lemmatization for our work.</p>
-<h3 id="data-selection-decision">Data Selection Decision</h3>
-<p><em>Wednesday, September 20th</em></p>
+</div>
+<h3>
+Data Selection Decision<br><small><em>Wednesday, September 20th</em></small>
+</h3>
+<div>
 <p>After looking through different sources of data this week and talking with my research mentor, it has been decided that using <a href="https://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a> as the sole data source should give enough documents to have good results. Furthermore, the data source contains parsed documents in XML format which allows for minimal use of additional parsing techniques from PDF format.</p>
-<h3 id="read-through-papers">Read through papers</h3>
-<p><em>Wednesday, September 13th</em></p>
+</div>
+<h3>
+Read through papers<br><small><em>Wednesday, September 13th</em></small>
+</h3>
+<div>
 <p>After being introduced to subjects by reading research papers, I have a decent understanding of the process that is taken to get from the step of text extraction and input to hypothesis generation (with lack of understanding of some specifics). I will be speaking with Justin some time this week in order to work out some questions I have about the process, but overall seems like a very cool process.</p>
 <p>I am now starting to look through different sources of data. The main and quickest source to find is <a href="https://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a>, but—given that this should have on the order of a couple of million of articles—this could be enough if no other viable source of data is found.</p>
-<p>I have also been looking into different programs for parsing text from PDF format. ### Beginning of Research</p>
-<p><em>Wednesday, September 6th</em></p>
+<p>I have also been looking into different programs for parsing text from PDF format.</p>
+</div>
+<h3>
+Beginning of Research<br><small><em>Wednesday, September 6th</em></small>
+</h3>
+<div>
 <p>Met with Dr. Safro and Dr. Herzog, and Justin Sybrandt from the ACS Lab. Introduced to and talked with Justin about his research and where my additional work will fit in.</p>
 <p>What I will be doing is working on reapplying Topic Modeling and Hypothesis Generation with abstracts and also full-text research papers as data input. This will require:</p>
 <ol type="1">
@@ -272,5 +306,7 @@ k <span class="op">=</span> <span class="dv">100000</span>
 <li>Finding of papers in large enough size so that reliable results and valid comparisons can be made.</li>
 <li>Parsing out text from papers and removing things like, equations, tables, image links and references.</li>
 </ol>
+</div>
+</div>
 </body>
 </html>
