@@ -30,11 +30,11 @@ Started by downloading 1.7 million documents over ftp from [PubMed Central](http
 
 <center><h4><b>Abstract subset</b> ngrams size (number of words in ngram) to counts</h4></center>
 
-![](../Resources/topicModeling/abstractSubsetNgramSizeToCounts.png)
+![](../Resources/TopicModeling/abstractSubsetNgramSizeToCounts.png)
 
 <center><h4><b>Fulltext subset</b> ngrams size (number of words in ngram) to counts</h4></center>
 
-![](../Resources/topicModeling/fulltextSubsetsNgramSizeToCounts.png)
+![](../Resources/TopicModeling/fulltextSubsetsNgramSizeToCounts.png)
 
 </div>
 
