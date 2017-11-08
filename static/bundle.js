@@ -33292,8 +33292,8 @@ var WebView = /** @class */ (function (_super) {
     WebView.prototype.render = function () {
         return (__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "container-fluid" },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "row" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "hidden-xs-down col-sm-1 col-md-2 col-lg-3" }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "col-xs-12 col-sm-10 col-md-8 col-lg-6 mainContent" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "hidden-xs-down col-sm-1 col-md-2 col-lg-2" }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "col-xs-12 col-sm-10 col-md-8 col-lg-8 mainContent" },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__MarkdownPages__["a" /* CompiledRoutes */], null)))));
     };
     return WebView;

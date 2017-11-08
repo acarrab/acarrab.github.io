@@ -3,7 +3,7 @@ body {
     background-color: white;
     margin: 0em;
     font-family: Roboto, sans-serif;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 .navbar {
@@ -130,7 +130,10 @@ h4 {
 }
 
 p {
-    font-size: 1em !important;
+    font-size: 1em;
+}
+.accordion p {
+    font-size: .8em;
 }
 
 h1 { margin-left: .0em; }
