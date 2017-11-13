@@ -10,7 +10,7 @@ def wr(s):
     fout.write(s)
 
 def compileToHtml(fileName, compileLocation):
-    open(compileLocation,'w').write(pexpect.run("pandoc {} -s -f markdown -t html5".format(fileName)).decode())
+    open(compileLocation,'w').write(pexpect.run("pandoc {} -s --mathml -f markdown -t html5".format(fileName)).decode())
 
 def getDirectories(directory = "./Content"):
     return pexpect.run("find {} -mindepth 1 -maxdepth 1 -type d".format(directory)).decode().split()
