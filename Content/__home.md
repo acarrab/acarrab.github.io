@@ -2,7 +2,8 @@
 
 ## Here are some places
 
-1. Please check out my [about page](#/about), it has some information and project history.
+1. Please take a look at my [CV](#/cv), as it has most recent information about my current work.
+1. You can also take a look at my [about page](#/about), as it has some information about myself.
 1. If you are bored, you can visit my [Resume](../Resume/Resume.pdf).
 1. If you are really bored, you can look at my [GitHub](https://github.com/acarrab).
 
