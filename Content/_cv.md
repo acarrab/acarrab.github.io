@@ -2,7 +2,6 @@
 
 ## Projects
 
-
 ### Data Mining Research and Project @ Clemson University
 
 *Fall 2017 — Spring 2018 (present)*
@@ -52,8 +51,16 @@
 - Created edge detection processing.
 - Usage motivated by ability to quickly calibrate software used within fish lense recording or projection devices.
 
-
 ## Work Experience
+
+### WSBF Radio Station Computer Engineer
+
+*Fall 2017*
+
+- Computer Engineer is misnomer, it is mostly software development.
+- Building music playing automation software on Electron Framework with Angular.
+- Maintaining website functionality, as well as adding new functionality.
+- Building software to streamline DJ's work.
 
 ### Software Engineering Intern @ Blackbaud
 
@@ -79,6 +86,15 @@
 
 ## Team Experience
 
+### Programming Team
+
+- Placed 10th out of 45 in South East Regional Programming Competition (*Fall 2017*)
+    - 2nd Place at location and put Clemson at 4th place college in the region.
+- Placed 6th out of 37 at Mercer Programming Contest (*Spring 2017*)
+- Placed 14th out of 45 in South East Regional Programming Competition (*Fall 2016*)
+- Placed 86th out of 200 in NAIPC Invitational Programming Competition (*Spring 2016*)
+- Placed 7th out of 40 at first programming contest at Mercer University (*Spring 2016*)
+
 ### Participated in HackGT (Hackathon)
 
 - Applied LDA Topic Modeling to recipe database, where the set of documents and word counts were recipes and ingredient counts respectively.
@@ -87,13 +103,6 @@
 ### Participated in Off The Grid (Company sponsored hackathon)
 
 - Created form sign up tracking in order to generate connection graph to monitor spread of form sign up through a network.
-
-### Programming Team
-
-- Placed 6th out of 37 at Mercer Programming Contest (Spring 2017)
-- Placed 14th out of 45 in South East Regional Programming Competition (Fall 2016)
-- Placed 86th out of 200 in NAIPC Invitational Programming Competition (Spring 2016)
-- Placed 7th out of 40 at first programming contest at Mercer University (Spring 2016)
 
 ## Relevant Courses
 
