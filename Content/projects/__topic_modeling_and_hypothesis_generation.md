@@ -9,7 +9,6 @@ We are seeing if it helps to extract additional information from the full-texts 
 *Last updated: Monday, November 13th 2017*
 
 All code is parallelized and ran on the [Clemson Palmetto Cluster](https://www.palmetto.clemson.edu/palmetto/userguide_palmetto_overview.html) in order to complete tasks in reasonable amount of time.
-Using [mpi4py](http://mpi4py.readthedocs.io/en/stable/) in order to run text extraction on the million documents in parallel on the Clemson Palmetto Cluster.
 
 Started by downloading 1.7 million documents over ftp from [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/).
 
@@ -372,6 +371,3 @@ What I will be doing is working on reapplying Topic Modeling and Hypothesis Gene
 
 1. Finding of papers in large enough size so that reliable results and valid comparisons can be made. 
 1. Parsing out text from papers and removing things like, equations, tables, image links and references.
-
-
-
