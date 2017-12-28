@@ -25,12 +25,14 @@ Started by downloading 1.7 million documents over ftp from [PubMed Central](http
 
 <h3>Introduction of Gibbs sampling to abstracts<br><small style="text-align:right">*Wednesday, December 20th*</small></h3>
 
+`REVISION`: The job actually did not finish completely so invalid results for the gibbs comparison with full-texts. I don't think there is a difference...
+
 In order to improve the quality of n-grams we can introduce gibbs sampling. ToPMine
 allows specification of the number of sampling iterations. This number is normally set to something on the order of 1000. With an improvement in the quality of topic modeling, we expect there to be an improvement in the quality of n-grams.
 
 Preliminary results show that while there was no effect of gibbs sampling on the topics for abstracts, there was a reduction in the overall number of n-grams for the full-text data-set.
 
-#### Comparision done on random subset of 500,000 documents
+#### Comparison done on random subset of 500,000 documents
 
 With the number of gibbs sampling iterations set to 1000, we reduce the number of unique n-grams from 18,464,534 to 14,533,324 (difference of 3931210). Gibbs sampling only reduces the number of n-grams, but does not create new unique ones.
 
