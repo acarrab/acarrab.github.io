@@ -28,13 +28,11 @@ so with the use of ReactJs and Typescriptand using PHP for the
 backend.
 
 
-#### WSBF Amalgam
+#### WSBF FM Clemson Radio Station: Amalgam
 
 This project works on automation and dj music selection for playing of
 music playing for our radio station. However, the current Databases
-project takes some priority. I plan on developing the functionality
-for the databases project then expand on it to further develop this
-application (also written with ReactJs and Typescript).
+project takes some priority. This project is in its early stages.
 
 
 
