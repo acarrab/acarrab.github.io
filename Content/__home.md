@@ -17,7 +17,7 @@
 
 #### CUhackit
 
-I developed our website for our Clemson Student ran hackathon.
+I developed our website for our Clemson student ran hackathon.
 
 - [CUhackit](http://cuhack.it/) ([Github for project](https://github.com/cuhackers/Splash-Page))
 
