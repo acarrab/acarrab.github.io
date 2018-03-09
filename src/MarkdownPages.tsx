@@ -39,24 +39,24 @@ export var Content: Directory = {
                     route: '/projects/topic_modeling_and_hypothesis_generation'
                 },
                 {
-                    name: 'Multi-Robot Environment',
-                    source: '../CompiledContent/multi-robot_environment_.html',
-                    route: '/projects/multi-robot_environment'
-                },
-                {
-                    name: 'Pubsub Architecture Analysis',
-                    source: '../CompiledContent/pubsub_architecture_analysis_.html',
-                    route: '/projects/pubsub_architecture_analysis'
-                },
-                {
                     name: 'Building Websites',
                     source: '../CompiledContent/building_websites_.html',
                     route: '/projects/building_websites'
                 },
                 {
+                    name: 'Multi-Robot Environment',
+                    source: '../CompiledContent/multi-robot_environment_.html',
+                    route: '/projects/multi-robot_environment'
+                },
+                {
                     name: 'Deep Learning',
                     source: '../CompiledContent/deep_learning_.html',
                     route: '/projects/deep_learning'
+                },
+                {
+                    name: 'Pubsub Architecture Analysis',
+                    source: '../CompiledContent/pubsub_architecture_analysis_.html',
+                    route: '/projects/pubsub_architecture_analysis'
                 }
             ],
             children: [
@@ -102,10 +102,10 @@ var pageData = {
    'Home': require('../node_modules/raw-loader/index.js!../CompiledContent/_.html'),
    'About': require('../node_modules/raw-loader/index.js!../CompiledContent/about_.html'),
    'Topic Modeling And Hypothesis Generation': require('../node_modules/raw-loader/index.js!../CompiledContent/topic_modeling_and_hypothesis_generation_.html'),
-   'Multi-Robot Environment': require('../node_modules/raw-loader/index.js!../CompiledContent/multi-robot_environment_.html'),
-   'Pubsub Architecture Analysis': require('../node_modules/raw-loader/index.js!../CompiledContent/pubsub_architecture_analysis_.html'),
    'Building Websites': require('../node_modules/raw-loader/index.js!../CompiledContent/building_websites_.html'),
+   'Multi-Robot Environment': require('../node_modules/raw-loader/index.js!../CompiledContent/multi-robot_environment_.html'),
    'Deep Learning': require('../node_modules/raw-loader/index.js!../CompiledContent/deep_learning_.html'),
+   'Pubsub Architecture Analysis': require('../node_modules/raw-loader/index.js!../CompiledContent/pubsub_architecture_analysis_.html'),
    '2017 Spring | 2D Game Engine Design': require('../node_modules/raw-loader/index.js!../CompiledContent/2017_Spring_2D_Game_Engine_Design_.html'),
    '2017 Spring | Computer Graphics': require('../node_modules/raw-loader/index.js!../CompiledContent/2017_Spring_Computer_Graphics_.html'),
    '2015 Spring | 102 Raytracer': require('../node_modules/raw-loader/index.js!../CompiledContent/2015_Spring_102_RayTracer_.html'),
@@ -117,10 +117,10 @@ export function CompiledRoutes() {
             <Route exact path='/' component={() => (htmlOf(pageData['Home']))} />
             <Route path='/about' component={() => (htmlOf(pageData['About']))} />
             <Route path='/projects/topic_modeling_and_hypothesis_generation' component={() => (htmlOf(pageData['Topic Modeling And Hypothesis Generation']))} />
-            <Route path='/projects/multi-robot_environment' component={() => (htmlOf(pageData['Multi-Robot Environment']))} />
-            <Route path='/projects/pubsub_architecture_analysis' component={() => (htmlOf(pageData['Pubsub Architecture Analysis']))} />
             <Route path='/projects/building_websites' component={() => (htmlOf(pageData['Building Websites']))} />
+            <Route path='/projects/multi-robot_environment' component={() => (htmlOf(pageData['Multi-Robot Environment']))} />
             <Route path='/projects/deep_learning' component={() => (htmlOf(pageData['Deep Learning']))} />
+            <Route path='/projects/pubsub_architecture_analysis' component={() => (htmlOf(pageData['Pubsub Architecture Analysis']))} />
             <Route path='/school_work/2017_Spring_2D_Game_Engine_Design' component={() => (htmlOf(pageData['2017 Spring | 2D Game Engine Design']))} />
             <Route path='/school_work/2017_Spring_Computer_Graphics' component={() => (htmlOf(pageData['2017 Spring | Computer Graphics']))} />
             <Route path='/school_work/2015_Spring_102_RayTracer' component={() => (htmlOf(pageData['2015 Spring | 102 Raytracer']))} />

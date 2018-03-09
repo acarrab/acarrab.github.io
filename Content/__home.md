@@ -55,7 +55,7 @@ Code is on [Github](https://github.com/acarrab/acarrab.github.io)
 
 This [older website](/OldWebsite) was built for fun and from a low
 level. I think it is really fun to travel around though! I made
-***interesting*** design choices though...
+***interesting*** design choices...
 
 [![](/Resources/OldWebsiteScreenCap.png)](/OldWebsite)
 
